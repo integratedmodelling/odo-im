@@ -1,11 +1,13 @@
 # Ontology of Descriptions and Observations for Integrated Modelling (ODO-IM)
 
 
-[![ODO-IM](https://img.shields.io/badge/ODO-IM-0.10.0-blue.svg?style=plastic)](http://github.com/integratedmodelling/odo)
+<img src="https://docs.integratedmodelling.org/klab/_images/KLAB_LOGO.png" align="right"
+     alt="k.LAB logo" width="600">
+     
 
-- **Authors**: [Integrated Modelling Partnership](http://www.integratedmodelling.org); Ferdinando Villa, Ph.D.
-- **License**: [CC-BY](http://creativecommons.org/licenses/by/3.0/)
-- [**Bug reports and feature requests**](https://github.com/integratedmodelling/odo/issues)
+- **Authors**: [Integrated Modelling Partnership](http://www.integratedmodelling.org); Ferdinando Villa, Ph.D.; Greta Adamo, Ph.D.
+- **License**: [CC-BY v4.0](http://creativecommons.org/licenses/by/4.0/)
+- [**Bug reports and feature requests**](https://github.com/integratedmodelling/odo-im/issues)
 
 The ODO-IM ontology is a core product developed and maintained by the [Integrated Modelling Partnership](http://www.integratedmodelling.org) (IMP) as the core observation ontology used in the k.LAB software stack. It specifies a view of the scientific process that can be implemented in software to support the IMP's goals of modular, distributed, semantically explicit and integrated scientific computing and modeling, according to the FAIR principles. ODO-IM provides five main core concepts:
 
@@ -54,6 +56,6 @@ The ODO-IM ontology is released under CC-BY license for any purpose. Its main ra
 - Define *worldviews* by specifying and composing Observables and Predicates, through efficient, flexible and readable statements, optimized for multi-domain, multi-scale definitions and with a built-in mechanisms for safe linking to existing controlled vocabularies. 
 - Specify interoperable data annotations and computations (Definitions). The k.LAB software stack provides the infrastructure to publish such definitions, along with the resources they depend on, on networked repositories managed by specialized servers, and to peruse a federation of such servers to assemble context-specific computations that are run to generate Observations based on a user query for the corresponding Observable. 
 	
-Links to an upper ontology of choice are made in k.IM, in the root domain of each worldview, and are meant to support reasoning outside of k.LAB as the reasoning in k.LAB only depends on ODO-IM concepts. The k.LAB stack also includes a knowledge processor that can rewrite k.IM namespaces into OWL ontologies and perform consistency checks, alignments, inferences and other operations.
+Links to an upper ontology of choice can be made in k.IM, in the root domain of each worldview, and are meant to support reasoning outside of k.LAB as the reasoning in k.LAB only depends on ODO-IM concepts. The k.LAB stack also includes a knowledge processor that can rewrite k.IM namespaces into OWL ontologies and perform consistency checks, alignments, inferences and other operations.
 
-This repository is the official distribution of the ODO-IM ontology, whose latest master release is available as http://www.integratedmodelling.org/odo.owl. The docs/ directory contains source documentation in AsciiDoc. Pre-built documentation is available at http://www.integratedmodelling.org/docs/odo.
+This repository is the official distribution of the ODO-IM ontology, whose latest master release is available as https://raw.githubusercontent.com/integratedmodelling/odo-im/master/releases/latest/odo.owl. Documentation will be available in this project in AsciiDoc source form and pre-built on the [k.LAB documentation site](https://docs.integratedmodelling.org).
