@@ -663,7 +663,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     <!-- http://integratedmodelling.org/odo#Description -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Description">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
@@ -816,14 +815,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#FunctionalDescription -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#FunctionalDescription">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observation"/>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#FunctionalRelationship -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#FunctionalRelationship">
@@ -966,12 +957,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
         </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#Observation -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Observation"/>
     
 
 
@@ -1200,14 +1185,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#Record -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Record">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observation"/>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Relationship -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Relationship">
@@ -1313,14 +1290,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#State -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#State">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observation"/>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#StateAttribution -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#StateAttribution">
@@ -1333,14 +1302,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
             </owl:Restriction>
         </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#StructuralDescription -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#StructuralDescription">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observation"/>
     </owl:Class>
     
 
