@@ -453,23 +453,6 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#Absence -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Absence">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Trait"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#impliesObservable"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://integratedmodelling.org/odo#Observable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>The absence trait, which must specialize another, mandatorily defines at least one observable whose existence in the context it denies.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Acceleration -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Acceleration">
@@ -613,6 +596,14 @@ Main author</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#Contextualization -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Contextualization">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    </owl:Class>
+    
+
+
     <!-- http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality">
@@ -663,6 +654,7 @@ Importantly, a deliberative agent can access history, although the full meaning 
     <!-- http://integratedmodelling.org/odo#Description -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Description">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Plan"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
@@ -936,16 +928,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#Observability -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Observability">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Trait"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>An abstract trait that describes the observability of another observable or trait. Subclassed automatically in class specifications when they expose something other than a direct trait.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Observable -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Observable">
@@ -1015,7 +997,9 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <!-- http://integratedmodelling.org/odo#Predicate -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Predicate"/>
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Predicate">
+        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
+    </owl:Class>
     
 
 
@@ -1232,6 +1216,21 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
+    <!-- http://integratedmodelling.org/odo#Resource -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Resource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Contextualization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A resource is any artifact that lives in the resource layer of k.LAB. This includes literals, datasets, data services, computations and computational services without a semantic characterization. Resources are unuquely identified by a URN which are resolved to their contextualized values through network services.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://integratedmodelling.org/odo#Role -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Role">
@@ -1360,6 +1359,7 @@ Importantly, a deliberative agent can access history, although the full meaning 
                 <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
 
@@ -1559,17 +1559,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Probability"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Proportion"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Ratio"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Identity"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Observability"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Ordering"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Realm"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Role"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#SubjectiveAttribute"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
