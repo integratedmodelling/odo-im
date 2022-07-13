@@ -512,15 +512,6 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#Asimmetry -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Asimmetry">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#AssertedQuality -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#AssertedQuality">
@@ -558,15 +549,6 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#CoefficientOfVariation -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#CoefficientOfVariation">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
 
@@ -700,15 +682,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Distance">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Length"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#DistributionProperty -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#DistributionProperty">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -855,15 +828,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#Kurtosis -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Kurtosis">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Length -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Length">
@@ -880,15 +844,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ExtensivePhysicalProperty"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <unit>kg</unit>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#Mean -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Mean">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
 
@@ -1289,15 +1244,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#StandardDeviation -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#StandardDeviation">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#StateAttribution -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#StateAttribution">
@@ -1393,7 +1339,7 @@ Importantly, a deliberative agent can access history, although the full meaning 
     <!-- http://integratedmodelling.org/odo#Uncertainty -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Uncertainty">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -1425,15 +1371,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Value">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#QuantifiableQuality"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#Variance -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Variance">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DistributionProperty"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -1526,18 +1463,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Asimmetry"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#CoefficientOfVariation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Kurtosis"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Mean"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#StandardDeviation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Uncertainty"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Variance"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#AssertedQuality"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#EnumerableQuality"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#QuantifiableQuality"/>
@@ -1557,16 +1482,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Numerosity"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Value"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#DistributionProperty"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#PhysicalProperty"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Probability"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Proportion"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Ratio"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
