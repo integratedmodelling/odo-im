@@ -467,6 +467,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Acknowledgement">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Instantiation"/>
+        <rdfs:comment>An Acknowledgement is a Description that incarnates an observation by the statement of its existence and characteristics. All observation sessions start with the Acknowledgement of a context observation. It is always an Instantiation of a single Subject.</rdfs:comment>
     </owl:Class>
     
 
@@ -600,6 +601,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Contextualization">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:comment>Contextualization is the Activity that uses Descriptions to transform one or more Resource into one or more derived Resources.</rdfs:comment>
     </owl:Class>
     
 
@@ -617,6 +619,12 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#CountObservation">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
+                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Numerosity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -657,10 +665,10 @@ Importantly, a deliberative agent can access history, although the full meaning 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
-                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>The activity that produces a continuant (an Observation) which represents the state of an Observable across a chosen scale.</rdfs:comment>
+        <rdfs:comment>Descriptions are plans that specify the Contextualization activities that produce Resources representing the state of their stated Observable(s) in the chosen context. In order to do so, they may access other Resources as specified by successively resolved Descriptions.</rdfs:comment>
     </owl:Class>
     
 
@@ -669,6 +677,12 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Detection">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
+                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Configuration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1052,6 +1066,12 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#ProbabilityObservation">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
+                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Probability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1076,14 +1096,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Proportion">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#RelativeQuantity"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#ProportionObservation -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#ProportionObservation">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
     </owl:Class>
     
 
@@ -1225,7 +1237,7 @@ Importantly, a deliberative agent can access history, although the full meaning 
                 <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Contextualization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>A resource is any artifact that lives in the resource layer of k.LAB. This includes literals, datasets, data services, computations and computational services without a semantic characterization. Resources are unuquely identified by a URN which are resolved to their contextualized values through network services.</rdfs:comment>
+        <rdfs:comment>A resource is any artifact that lives in the resource layer of k.LAB. This includes literals, datasets, data services, computations and computational services without a semantic characterization. Resources are uniquely identified by a URN which are resolved to their contextualized values through network services.</rdfs:comment>
     </owl:Class>
     
 
@@ -1246,16 +1258,17 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#ScaleDescription -->
+    <!-- http://integratedmodelling.org/odo#Simulation -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#ScaleDescription">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Acknowledgement"/>
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Simulation">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Resolution"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
-                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Scale"/>
+                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Process"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Simulation is the resolution of a Process.</rdfs:comment>
     </owl:Class>
     
 
@@ -1401,6 +1414,19 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Valuation">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Priority"/>
+                            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Value"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1535,19 +1561,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Numerosity"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Value"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#CountObservation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#DistanceMeasurement"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#ProbabilityObservation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#ProportionObservation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Ranking"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#RatioObservation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#UncertaintyObservation"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Valuation"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
