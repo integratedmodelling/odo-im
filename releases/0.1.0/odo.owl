@@ -511,15 +511,6 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#AssertedQuality -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#AssertedQuality">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Attribute -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Attribute">
@@ -1383,14 +1374,6 @@ Main author</dc:contributor>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Mass"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Volume"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Weight"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#AssertedQuality"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#EnumerableQuality"/>
-            <rdf:Description rdf:about="http://integratedmodelling.org/odo#QuantifiableQuality"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
