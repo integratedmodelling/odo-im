@@ -296,7 +296,6 @@ Main author</dc:contributor>
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasScale">
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Description"/>
-        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Scale"/>
     </owl:ObjectProperty>
     
 
@@ -475,7 +474,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Agent -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Agent">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#PhysicalObject"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Subject"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <rdfs:comment>An Agent is always physical and material.</rdfs:comment>
     </owl:Class>
@@ -619,17 +618,6 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#DeliberativeAgent -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#DeliberativeAgent">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ReactiveAgent"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>The deliberative agent can change its own state. If the relationship with other agents is &apos;affects&apos;, it can also modify other agents&apos; state. A deliberative agent is not necessarily interactive.
-Importantly, a deliberative agent can access history, although the full meaning of this is still under definition and more specification may be added.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Density -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Density">
@@ -767,12 +755,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Extent">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ContextualQuality"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#hasContext"/>
-                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Scale"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -814,16 +796,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#IntensivePhysicalProperty">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#PhysicalProperty"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#InteractiveAgent -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#InteractiveAgent">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ReactiveAgent"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>Interactive agents have the ability to see other agents and read their state as long as their semantics relates to them through restrictions.</rdfs:comment>
     </owl:Class>
     
 
@@ -916,25 +888,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Ordering">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Attribute"/>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#PhysicalGroup -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#PhysicalGroup">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Subject"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#PhysicalObject -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#PhysicalObject">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Subject"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>A physical object is material, although it can be a cavity, defined by the absence of physical matter within a physical medium.</rdfs:comment>
     </owl:Class>
     
 
@@ -1104,26 +1057,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
     
 
 
-    <!-- http://integratedmodelling.org/odo#ReactiveAgent -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#ReactiveAgent">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Agent"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>Reactive agents have the ability of reacting to events, reading and if necessary changing their state and scale.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#ReactiveSubject -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#ReactiveSubject">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#PhysicalObject"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>Reactive subjects have the ability of reacting to events, reading their state and scale.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Realm -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Realm">
@@ -1198,14 +1131,6 @@ Importantly, a deliberative agent can access history, although the full meaning 
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Role">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#Scale -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Scale">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
     </owl:Class>
     
 
