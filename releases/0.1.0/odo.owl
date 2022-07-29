@@ -202,7 +202,6 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#exposesTrait -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#exposesTrait">
-        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Type"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Trait"/>
     </owl:ObjectProperty>
     
@@ -533,12 +532,6 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Classification">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#StateAttribution"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
-                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Type"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -718,7 +711,15 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#EnumerableQuality">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#exposesTrait"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://integratedmodelling.org/odo#Trait"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
+        <rdfs:comment>An enumerable quality exposes one or more Traits of its context observation, with potentially different concrete values in different parts. A trait is a Predicate, but an Enumerable Quality is a Quality, which allows attributing the universal to a context Observable distributing its values according to its Scale.</rdfs:comment>
     </owl:Class>
     
 
@@ -867,14 +868,6 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#Occurrence -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Occurrence">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Probability"/>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Ordering -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Ordering">
@@ -912,9 +905,16 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Presence -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Presence">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#EnumerableQuality"/>
-        <owl:disjointWith rdf:resource="http://integratedmodelling.org/odo#Type"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#PresenceProbability -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#PresenceProbability">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Probability"/>
     </owl:Class>
     
 
@@ -1231,23 +1231,6 @@ Main author</dc:contributor>
             </owl:Restriction>
         </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#Type -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Type">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#EnumerableQuality"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#exposesTrait"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://integratedmodelling.org/odo#Trait"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>A Type exposes one or more Traits of its context observation, with potentially different concrete values in different parts. A trait is a Predicate, but a Type is a Quality, which allows attributing the universal to a context Observable distributing its values according to its Scale.</rdfs:comment>
     </owl:Class>
     
 
