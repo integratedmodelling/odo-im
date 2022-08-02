@@ -579,9 +579,18 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#CountObservation -->
+    <!-- http://integratedmodelling.org/odo#CountableThing -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#CountObservation">
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#CountableThing">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
+        <rdfs:comment>An entity that can be counted at the scale of observation. This includes processes when they happen fast enough to be perceived as events.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#Counting -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Counting">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -589,15 +598,6 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Numerosity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#CountableThing -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#CountableThing">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
-        <rdfs:comment>An entity that can be counted at the scale of observation. This includes processes when they happen fast enough to be perceived as events.</rdfs:comment>
     </owl:Class>
     
 
@@ -946,9 +946,9 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#ProbabilityObservation -->
+    <!-- http://integratedmodelling.org/odo#ProbabilityDescription -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#ProbabilityObservation">
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#ProbabilityDescription">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1040,9 +1040,9 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#RatioObservation -->
+    <!-- http://integratedmodelling.org/odo#RatioDescription -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#RatioObservation">
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#RatioDescription">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
     </owl:Class>
     
@@ -1244,9 +1244,9 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#UncertaintyObservation -->
+    <!-- http://integratedmodelling.org/odo#UncertaintyDescription -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#UncertaintyObservation">
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#UncertaintyDescription">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
     </owl:Class>
     
