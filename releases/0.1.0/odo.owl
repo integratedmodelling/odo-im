@@ -551,6 +551,20 @@ Main author</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#Connection -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Connection">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Resolution"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
+                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Relationship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://integratedmodelling.org/odo#ContextualQuality -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#ContextualQuality">
