@@ -473,9 +473,9 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Agent -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Agent">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Subject"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Substantial"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>An Agent is always physical and material.</rdfs:comment>
+        <rdfs:comment></rdfs:comment>
     </owl:Class>
     
 
@@ -1202,7 +1202,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Subject -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Subject">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Substantial"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -1212,6 +1212,14 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#SubjectiveAttribute">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Attribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#Substantial -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Substantial">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
     </owl:Class>
     
 
