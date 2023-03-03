@@ -543,7 +543,7 @@ Main author</dc:contributor>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#isInherentTo"/>
-                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Countable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A configuration is what human observation perceives as a resultant &quot;pattern&quot; summing up the perceived effects of multiple qualities in a subject. It is not observable in k.LAB, but it can be used (exclusively) as the inherent subject for qualities. It must specify the subject type it pertains to (using an inherentTo restriction), and the subject type must match the subject where any observation of Q/Ts inherent to it are made.</rdfs:comment>
@@ -593,9 +593,9 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#CountableThing -->
+    <!-- http://integratedmodelling.org/odo#Countable -->
 
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#CountableThing">
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Countable">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
         <rdfs:comment>An entity that can be counted at the scale of observation. This includes processes when they happen fast enough to be perceived as events.</rdfs:comment>
     </owl:Class>
@@ -741,7 +741,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Event -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Event">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Countable"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -790,7 +790,7 @@ Main author</dc:contributor>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
-                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
+                <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Countable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1073,7 +1073,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Relationship -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Relationship">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Countable"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -1219,7 +1219,8 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Substantial -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Substantial">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#CountableThing"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Countable"/>
+        <rdfs:comment>Similar to subtantial in UFO and DOLCE</rdfs:comment>
     </owl:Class>
     
 
