@@ -539,7 +539,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Configuration -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Configuration">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#isInherentTo"/>
@@ -596,7 +596,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Countable -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Countable">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observable"/>
         <rdfs:comment>An entity that can be counted at the scale of observation. This includes processes when they happen fast enough to be perceived as events.</rdfs:comment>
     </owl:Class>
     
@@ -650,16 +650,6 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Configuration"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#DirectObservable -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#DirectObservable">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observable"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>A direct observable is observed by simply acknowledging its existence.</rdfs:comment>
     </owl:Class>
     
 
@@ -977,7 +967,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Process -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Process">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#DirectObservable"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#affects"/>
@@ -1220,7 +1210,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Substantial">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Countable"/>
-        <rdfs:comment>Similar to subtantial in UFO and DOLCE</rdfs:comment>
+        <rdfs:comment>Similar to &quot;Subtantial&quot; in UFO and DOLCE</rdfs:comment>
     </owl:Class>
     
 
