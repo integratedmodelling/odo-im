@@ -14,7 +14,7 @@ The ODO-IM ontology is a core product developed and maintained by the [Integrate
 
 1) **Description**s capture the activities that produce scientific artifacts describing a concept. Subclasses of Description can be used to describe scientific assertions, models and computational workflows (Definitions, see below).
 2) **Observable** hierarchy describes the different concepts that serve as the object of a Description and provide the basic semantics for the resulting observation. 
-3) Observables can be combined with 3) **Predicate**s (such as attributes, roles etc) using restrictions on ODO-IM properties. The ODO-IM adopts an *orthogonality* principle that implies that predicates are never implicit and are mixed with observables through explicit restrictions. In k.LAB, these restrictions are created through the parsing of a logical expression stated in a user-friendly language (k.IM), so that users do not directly restrict OWL concepts. 
+3) Observables can be combined with **Predicate**s (such as attributes, roles etc) using restrictions on ODO-IM properties. The ODO-IM adopts an *orthogonality* principle that implies that predicates are never implicit and are mixed with observables through explicit restrictions. In k.LAB, these restrictions are created through the parsing of a logical expression stated in a user-friendly language (k.IM), so that users do not directly restrict OWL concepts. 
 
 ODO-IM aims at specifying scientific **Observation**s describe the scientific artifacts themselves, resulting from instantiating a Description activity within the context of an acknowledged root observation. Each concrete Description subclass is restricted to produce a specific type of Observation.
 
