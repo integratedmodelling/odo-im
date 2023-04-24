@@ -462,7 +462,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Acknowledgement">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Instantiation"/>
-        <rdfs:comment>An Acknowledgement is a Description that incarnates an observation by the statement of its existence and characteristics. All observation sessions start with the Acknowledgement of a context observation. It is always an Instantiation of a single Subject.</rdfs:comment>
+        <rdfs:comment>Acknowledgement incarnates an observation by the statement of its existence and characteristics. All observation sessions start with the Acknowledgement of a context observation. It is always an Instantiation of a single Subject.</rdfs:comment>
     </owl:Class>
     
 
@@ -535,6 +535,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Classification">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#StateAttribution"/>
+        <rdfs:comment>Classification applies to Countable</rdfs:comment>
     </owl:Class>
     
 
@@ -564,6 +565,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Relationship"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Connection contextualizes Relationship</rdfs:comment>
     </owl:Class>
     
 
@@ -615,6 +617,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Numerosity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Counting applies to Numerosity</rdfs:comment>
     </owl:Class>
     
 
@@ -653,6 +656,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Configuration"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Detection contextualizes Configuration</rdfs:comment>
     </owl:Class>
     
 
@@ -793,6 +797,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Countable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Instantiation reifies Countable</rdfs:comment>
     </owl:Class>
     
 
@@ -836,6 +841,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#PhysicalProperty"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Measurement applies to PhysicalProperty</rdfs:comment>
     </owl:Class>
     
 
@@ -972,6 +978,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Probability"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>ProbabilityDescription applies to Probability</rdfs:comment>
     </owl:Class>
     
 
@@ -1029,6 +1036,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#QuantifiableQuality"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Quantification applies to numeric QuantifiableQuality</rdfs:comment>
     </owl:Class>
     
 
@@ -1043,6 +1051,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Priority"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Ranking applies to Priority</rdfs:comment>
     </owl:Class>
     
 
@@ -1060,6 +1069,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#RatioDescription">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
+        <rdfs:comment>RatioDescription applies to Ratio</rdfs:comment>
     </owl:Class>
     
 
@@ -1115,6 +1125,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Resolution">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Description"/>
+        <rdfs:comment>Resolution describes the explanation of the Observable process realization</rdfs:comment>
     </owl:Class>
     
 
@@ -1258,6 +1269,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#UncertaintyDescription">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quantification"/>
+        <rdfs:comment>UncertaintyDescription applies to Uncertainty</rdfs:comment>
     </owl:Class>
     
 
@@ -1272,6 +1284,7 @@ Main author</dc:contributor>
                 <owl:allValuesFrom rdf:resource="http://integratedmodelling.org/odo#Value"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Valuation applies to Value</rdfs:comment>
     </owl:Class>
     
 
