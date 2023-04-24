@@ -201,9 +201,7 @@ Main author</dc:contributor>
 
     <!-- http://integratedmodelling.org/odo#exposesTrait -->
 
-    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#exposesTrait">
-        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Trait"/>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#exposesTrait"/>
     
 
 
@@ -327,7 +325,6 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#impliesObservable -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#impliesObservable">
-        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Trait"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Observable"/>
         <rdfs:comment>This property embodies the notion of &quot;implication&quot; of another observable, whose existence is implied by observing a particular trait. For example, the trait &quot;warm&quot; implies presence of a process in which energy moves particles causing heat, or more prosaically, observability of buildings in a point implies that a building is there.</rdfs:comment>
     </owl:ObjectProperty>
@@ -513,7 +510,13 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Attribute -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Attribute">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Trait"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#impliesObservable"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -666,7 +669,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Domain -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Domain">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
     </owl:Class>
     
 
@@ -715,15 +718,22 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#EnumerableQuality">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#exposesTrait"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://integratedmodelling.org/odo#Trait"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <rdfs:comment>An enumerable quality exposes one or more Traits of its context observation, with potentially different concrete values in different parts. A trait is a Predicate, but an Enumerable Quality is a Quality, which allows attributing the universal to a context Observable distributing its values according to its Scale.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#Essential -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Essential">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#impliesObservable"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -768,7 +778,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Identity -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Identity">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Trait"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Essential"/>
     </owl:Class>
     
 
@@ -840,6 +850,14 @@ Main author</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#NonEssential -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#NonEssential">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+    </owl:Class>
+    
+
+
     <!-- http://integratedmodelling.org/odo#Numerosity -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Numerosity">
@@ -852,12 +870,6 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Observable -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Observable">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#traitProperty"/>
-                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Trait"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -1055,7 +1067,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Realm -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Realm">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Trait"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
     </owl:Class>
     
 
@@ -1125,7 +1137,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Role -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Role">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
     </owl:Class>
     
 
@@ -1229,21 +1241,6 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Time">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Extent"/>
-    </owl:Class>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#Trait -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#Trait">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#impliesObservable"/>
-                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
 
