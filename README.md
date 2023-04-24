@@ -11,9 +11,11 @@
 
 The ODO-IM ontology is a core product developed and maintained by the [Integrated Modelling Partnership](http://www.integratedmodelling.org) (IMP) as the core observation ontology used in the k.LAB software stack. It specifies a view of the scientific process that can be implemented in software to support the IMP's goals of modular, distributed, semantically explicit and integrated scientific computing and modeling, according to the FAIR principles. ODO-IM provides five main core concepts:
 
-- **Description**s describe the activities that produce scientific artifacts  describing a concept. Subclasses of Description can be used to describe scientific assertions, models and computational workflows (Definitions, see below).
-- **Observation**s describe the scientific artifacts themselves, resulting from instantiating a Description activity within the context of an acknowledged root observation. Each concrete Description subclass is restricted to produce a specific type of Observation.
-- The **Observable** hierarchy describes the different concepts that serve as the object of a Description and provide the basic semantics for the resulting Observation. Observables can be combined with **Predicate**s (such as attributes, roles etc) using restrictions on ODO-IM properties. The ODO-IM adopts an *orthogonality* principle that implies that predicates are never implicit and are mixed with observables through explicit restrictions. In k.LAB, these restrictions are created through the parsing of a logical expression stated in a user-friendly language (k.IM), so that users do not directly restrict OWL concepts. 
+
+1) **Description**s capture the activities that produce scientific artifacts describing a concept. Subclasses of Description can be used to describe scientific assertions, models and computational workflows (Definitions, see below).
+2) **Observable** hierarchy describes the different concepts that serve as the object of a Description and provide the basic semantics for the resulting observation. Observables can be combined with 3) **Predicate**s (such as attributes, roles etc) using restrictions on ODO-IM properties. The ODO-IM adopts an *orthogonality* principle that implies that predicates are never implicit and are mixed with observables through explicit restrictions. In k.LAB, these restrictions are created through the parsing of a logical expression stated in a user-friendly language (k.IM), so that users do not directly restrict OWL concepts. 
+
+ODO-IM aims at specifying scientific **Observation**s describe the scientific artifacts themselves, resulting from instantiating a Description activity within the context of an acknowledged root observation. Each concrete Description subclass is restricted to produce a specific type of Observation.
 
 Observables are classified along two main, dychotomic logical dimensions:
     + Continuant vs. Occurrent nature, i.e. whether or not time is integral to the phenomenological nature of the observable;
@@ -28,16 +30,11 @@ Together, these delineate the six main categories of **observables**:
 
 These observables are further articulated in ODO-IM to provide a solid foundation for any ontology of scientific observations.
 
-- The main logical dimensions for **predicates** are:
-    + Identities
-    + Realms
-    + Roles
-    + Orderings
-    + Attributes (which are not any of the above)
+- The main logical dimensions for **predicates** are based on essential and non-essential predication:
+    + Essential: Identities
+    + NonEssential: Attribute (Ordering and SubjectiveAttribute), Realms, Domain, and Role
 
-In addition, _domains_, _extents_ and _configurations_ complete the first-level hierarchy of predicates and observables.
-
-- **Definition**s are logical structures that can be used by an intelligent agent to carry out the Description of a specified Observable. Definitions specify observations either by acknowledgement (through an extensional statement) or by producing a computable dataflow (intensional statements listing zero or more Observables as dependencies). In ODO-IM applications, this class includes the main products of the activity of semantic modelling, i.e. what is commonly referred to as "data annotations" and "models". Properties and restrictions constrain specific classes of Definitions to specific classes of Observables.
+- **Definition**s are logical structures expressed in k.IM language that can be used by an intelligent agent to carry out the Description of a specified Observable. Definitions specify observations either by acknowledgement (through an extensional statement) or by producing a computable dataflow (intensional statements listing zero or more Observables as dependencies). In ODO-IM applications, this class includes the main products of the activity of semantic modelling, i.e. what is commonly referred to as "data annotations" and "models". Properties and restrictions constrain specific classes of Definitions to specific classes of Observables.
 
 ODO-IM does _not_ cover several topics of common occurrence in other observation ontologies:
 
