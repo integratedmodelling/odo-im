@@ -9,25 +9,29 @@
 - **License**: [CC-BY v4.0](http://creativecommons.org/licenses/by/4.0/)
 - [**Bug reports and feature requests**](https://github.com/integratedmodelling/odo-im/issues)
 
-The ODO-IM ontology is a core product developed and maintained by the [Integrated Modelling Partnership](http://www.integratedmodelling.org) (IMP) as the core observation ontology used in the k.LAB software stack. It specifies a view of the scientific process that can be implemented in software to support the IMP's goals of modular, distributed, semantically explicit and integrated scientific computing and modeling, according to the FAIR principles. ODO-IM provides five main core concepts:
+## About ODO-IM
 
+The ODO-IM ontology is a core product developed and maintained by the [Integrated Modelling Partnership](http://www.integratedmodelling.org) (IMP) as the core observation ontology used in the k.LAB software stack. It specifies a view of the scientific process that can be implemented in software to support the IMP's goals of modular, distributed, semantically explicit and integrated scientific computing and modeling, according to the FAIR principles. 
+
+ODO-IM provides three main core concepts:
 
 1) **Description**s capture the activities that produce scientific artifacts describing a concept. Subclasses of Description can be used to describe scientific assertions, models and computational workflows (Definitions, see below).
 2) **Observable** hierarchy describes the different concepts that serve as the object of a Description and provide the basic semantics for the resulting observation. 
 3) Observables can be combined with **Predicate**s (such as attributes, roles etc) using restrictions on ODO-IM properties. The ODO-IM adopts an *orthogonality* principle that implies that predicates are never implicit and are mixed with observables through explicit restrictions. In k.LAB, these restrictions are created through the parsing of a logical expression stated in a user-friendly language (k.IM), so that users do not directly restrict OWL concepts. 
 
-ODO-IM aims at specifying scientific **Observation**s describe the scientific artifacts themselves, resulting from instantiating a Description activity within the context of an acknowledged root observation. Each concrete Description subclass is restricted to produce a specific type of Observation.
+ODO-IM aims at specifying scientific **Observation**s that describe the scientific artifacts themselves, resulting from instantiating a Description activity within the context of an acknowledged root observation. Each concrete Description subclass is restricted to produce a specific type of Observation.
 
-Observables are classified along two main, dychotomic logical dimensions:
-    + Continuant vs. Occurrent nature, i.e. whether or not time is integral to the phenomenological nature of the observable;
-    + Countability, i.e. the possibility of an observation of the observable to describe multiple instances of the observable.
+Observations are classified along two main, dychotomic logical dimensions based on  phenomenological perspectives of the observer:
+    + Functional vs Structural: whether or not time is integral to the phenomenological nature of the observable;
+    + Countability:  the possibility of an observation of the observable to describe multiple instances of the observable.
+    
 
 Together, these delineate the six main categories of **observables**:
 
 | | Non-countable | Countable | |
 | --- | --- | --- | --- |
-| Continuant | Quality | Subject | Structural relationship |
-| Occurrent  | Process | Event | Functional relationship |
+| Structural | Quality | Subject | Structural relationship |
+| Functional  | Process | Event | Functional relationship |
 
 These observables are further articulated in ODO-IM to provide a solid foundation for any ontology of scientific observations.
 
@@ -39,7 +43,7 @@ These observables are further articulated in ODO-IM to provide a solid foundatio
 
 ODO-IM does _not_ cover several topics of common occurrence in other observation ontologies:
 
-- It remains as agnostic as possible about the phenomenology of Observables, in an effort to preserve maximum orthogonality with an arbitrary upper ontology stated in a derived worldview. The characterization of Observables is intentionally shallow, as observables are meant to specialize types in an externally provided upper ontology to form the basis of a _worldview_. Such links are made in the root domain of the worldview. See the full documentation for minimum expressive requirements and caveats.
+- It remains as agnostic as possible about the metaphysics of Observables, in an effort to preserve maximum orthogonality with an arbitrary upper ontology stated in a derived worldview. The characterization of Observables is intentionally shallow, as observables are meant to specialize types in an externally provided upper ontology to form the basis of a _worldview_. Such links are made in the root domain of the worldview. See the full documentation for minimum expressive requirements and caveats.
 - It does not provide any detail on space, time and any other topologies implied in the definition of observational scale, beyond their statement as extentual observables (Extent), as their specific interpretation is left to worldviews derived from ODO-IM.
 - It does not provide semantics for units of measurement, like other observation ontologies do. In ODO-IM units do not hold the same ontological dignity as the remaining subject matter. The applications where ODO-IM is used do not need units as stated instances and do not use reasoning to validate units - an endeavor that would, anyway, require second-order logics in order to handle the transformation of units through aggregation and propagation in time and space when shifts in observation semantics cause the context topology to collapse or subdivide, without altering the observable semantics. To support applications, ODO-IM does lists the SI base unit textually in annotation properties linked to all PhysicalProperty observables, using SI conventions. Applications can use a unit parser to translate these into data structures for validation and conversion.
 

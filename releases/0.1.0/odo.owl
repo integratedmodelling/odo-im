@@ -517,6 +517,7 @@ Main author</dc:contributor>
                 <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Attribute specifies descriptive accidental predicates of a subject.</rdfs:comment>
     </owl:Class>
     
 
@@ -674,6 +675,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Domain">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
+        <rdfs:comment>Domain specifies the field within a concept is described to belong.</rdfs:comment>
     </owl:Class>
     
 
@@ -738,6 +740,7 @@ Main author</dc:contributor>
                 <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Essential predicate defines what an entity is [Mesquita, A. P. (2012). Types of Predication in Aristotle (Posterior Analytics I 22). Journal of Ancient Philosophy, 6(2), 1-27)]</rdfs:comment>
     </owl:Class>
     
 
@@ -783,6 +786,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Identity">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Essential"/>
+        <rdfs:comment>Identity specifies the assigment of a concep to a certain class of concepts based on the essential/identifying characterics of the concept itself.</rdfs:comment>
     </owl:Class>
     
 
@@ -860,6 +864,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#NonEssential">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+        <rdfs:comment>NonEssential Predicate specifies accidents, then contingent predicates that do not characterize the identity of a concept. [Mesquita, A. P. (2012). Types of Predication in Aristotle (Posterior Analytics I 22). Journal of Ancient Philosophy, 6(2), 1-27)]</rdfs:comment>
     </owl:Class>
     
 
@@ -1078,6 +1083,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Realm">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
+        <rdfs:comment>Realm specifies the physical (e.g. of the biosphere) location of a concept.</rdfs:comment>
     </owl:Class>
     
 
@@ -1149,6 +1155,7 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Role">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#NonEssential"/>
+        <rdfs:comment>Role specifies predicates that can be played by a concept in a context.</rdfs:comment>
     </owl:Class>
     
 
