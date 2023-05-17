@@ -139,6 +139,16 @@ Main author</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#confers -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#confers">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Process"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Attribute"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Role"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://integratedmodelling.org/odo#confersTrait -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#confersTrait"/>
@@ -178,6 +188,16 @@ Main author</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#creates -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#creates">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Process"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Countable"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Quality"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://integratedmodelling.org/odo#dependsOn -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#dependsOn">
@@ -189,13 +209,27 @@ Main author</dc:contributor>
 
     <!-- http://integratedmodelling.org/odo#describesQuality -->
 
-    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#describesQuality"/>
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#describesQuality">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Attribute"/>
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Quality"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Quality"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://integratedmodelling.org/odo#discretizesQuality -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#discretizesQuality"/>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#emergesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#emergesFrom">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Observable"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Countable"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Quality"/>
+    </owl:ObjectProperty>
     
 
 
@@ -439,6 +473,18 @@ Main author</dc:contributor>
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#representedBy">
         <rdfs:comment>Used to restrict an observable when it is observed through another - e.g. geographical direction by presence of moss on trees.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#requires -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#requires">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Observable"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Attribute"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Extent"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Identity"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Realm"/>
     </owl:ObjectProperty>
     
 
@@ -1044,7 +1090,7 @@ Main author</dc:contributor>
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Quality">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observable"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-        <rdfs:comment>A quality is observed only indirectly, by comparison with a reference quality. The comparison produces different outcomes according to the nature of the quality. The observation resulting from the contextualization of a quality is called a state, and contains values in the same numerosity as the scale.</rdfs:comment>
+        <rdfs:comment>Qualities represent observables that cannot be observed directly but only through other entities that bear them, in this sense qualities inhere to other entities and are tied to their bearers.</rdfs:comment>
     </owl:Class>
     
 
