@@ -641,7 +641,6 @@ Main author</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#ContextualQuality">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quality"/>
-        <owl:disjointWith rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -792,7 +791,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#EnumerableQuality -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#EnumerableQuality">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <rdfs:comment>An enumerable quality exposes one or more Traits of its context observation, with potentially different concrete values in different parts. A trait is a Predicate, but an Enumerable Quality is a Quality, which allows attributing the universal to a context Observable distributing its values according to its Scale.</rdfs:comment>
     </owl:Class>
@@ -957,15 +956,6 @@ Main author</dc:contributor>
     
 
 
-    <!-- http://integratedmodelling.org/odo#ObservedQuality -->
-
-    <owl:Class rdf:about="http://integratedmodelling.org/odo#ObservedQuality">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quality"/>
-        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
-    </owl:Class>
-    
-
-
     <!-- http://integratedmodelling.org/odo#Ordering -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Ordering">
@@ -1003,7 +993,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Presence -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Presence">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
@@ -1098,7 +1088,7 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#QuantifiableQuality -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#QuantifiableQuality">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ObservedQuality"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Quality"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <rdfs:comment>QuantificableQuality is a Quality that can be quantified.</rdfs:comment>
     </owl:Class>
@@ -1471,6 +1461,15 @@ Main author</dc:contributor>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Classification"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Quantification"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Verification"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#ContextualQuality"/>
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#EnumerableQuality"/>
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Presence"/>
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#QuantifiableQuality"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
