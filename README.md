@@ -36,7 +36,7 @@ Together, these delineate the six main categories of **observables**:
 
 These observables are further articulated in ODO-IM to provide a solid foundation for any ontology of scientific observations.
 
-- The main logical dimensions for **predicates** are based on the interpretation that certain predicates provide epistemic accounts:
+- The main logical dimensions for **predicates** are based on the perspective that certain predicates provide epistemic accounts rather than just describing the characteristics of the observables:
     + Epistemic: Identities, Domain
     + Attribute (Ordering and SubjectiveAttribute), Realms, Domain, and Role
 
