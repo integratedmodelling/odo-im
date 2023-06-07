@@ -299,6 +299,7 @@ Main author</dc:contributor>
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasDestination">
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Relationship"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Subject"/>
+        <rdfs:comment>Define the links between types of relationship and the class of subjects.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -341,6 +342,7 @@ Main author</dc:contributor>
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasScale">
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Description"/>
+        <rdfs:comment>Specifies the scale of a description.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -350,6 +352,7 @@ Main author</dc:contributor>
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasSource">
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Relationship"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Subject"/>
+        <rdfs:comment>Define the links between types of relationship and the class of subjects.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -412,6 +415,7 @@ Main author</dc:contributor>
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#inherits">
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Observable"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+        <rdfs:comment>Specifies the predicate inherited in an observable</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -477,6 +481,7 @@ Main author</dc:contributor>
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Substantial"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Event"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Process"/>
+        <rdfs:comment>Defines substantial participating in event or process</rdfs:comment>
     </owl:ObjectProperty>
     
 
