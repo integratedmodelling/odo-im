@@ -36,9 +36,9 @@ Together, these delineate the six main categories of **observables**:
 
 These observables are further articulated in ODO-IM to provide a solid foundation for any ontology of scientific observations.
 
-- The main logical dimensions for **predicates** are based on essential and non-essential predication:
-    + Essential: Identities
-    + NonEssential: Attribute (Ordering and SubjectiveAttribute), Realms, Domain, and Role
+- The main logical dimensions for **predicates** are based on the interpretation that certain predicates provide epistemic accounts:
+    + Epistemic: Identities, Domain
+    + Attribute (Ordering and SubjectiveAttribute), Realms, Domain, and Role
 
 - **Definition**s are logical structures expressed in k.IM language that can be used by an agent to carry out the Description of a specified Observable. Definitions specify observations either by acknowledgement (through an extensional statement) or by producing a computable dataflow (intensional statements listing zero or more Observables as dependencies). In ODO-IM applications, this class includes the main products of the activity of semantic modelling, i.e. what is commonly referred to as "data annotations" and "models". Properties and restrictions constrain specific classes of Definitions to specific classes of Observables.
 
