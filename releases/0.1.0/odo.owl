@@ -516,6 +516,7 @@ Main author</dc:contributor>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Extent"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Identity"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Realm"/>
+        <rdfs:comment>Used for compulsory declared elements to be coupled to an observable.</rdfs:comment>
     </owl:ObjectProperty>
     
 
