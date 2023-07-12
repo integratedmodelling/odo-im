@@ -1522,6 +1522,14 @@ Main author</dc:contributor>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Event"/>
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Relationship"/>
+            <rdf:Description rdf:about="http://integratedmodelling.org/odo#Substantial"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Mass"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Volume"/>
             <rdf:Description rdf:about="http://integratedmodelling.org/odo#Weight"/>
