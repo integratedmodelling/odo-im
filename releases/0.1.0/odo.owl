@@ -134,6 +134,12 @@ Main author</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#characterizes -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#characterizes"/>
+    
+
+
     <!-- http://integratedmodelling.org/odo#classifiesQuality -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#classifiesQuality"/>
@@ -1014,6 +1020,12 @@ Main author</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Predicate -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Predicate">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#characterizes"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
     </owl:Class>
     
