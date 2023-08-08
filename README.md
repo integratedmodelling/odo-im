@@ -23,20 +23,21 @@ ODO-IM aims at specifying scientific **Observation**s that describe the scientif
 
 Observations are classified along two main, dychotomic logical dimensions based on  phenomenological perspectives of the observer:
 
-    + Functional vs Structural: whether or not time is integral to the phenomenological nature of the observable;
-    + Countability:  the possibility of an observation of the observable to describe multiple instances of the observable.
-    
+    + Functional vs Structural: whether or not time is integral to the phenomenological nature of the Observable;
+    + Dependence: whether or not an Observable is dependent upon another;
+    + Arity of inherence/dependence: defines absence or presence of dependence and, in case of presence, its numerosity.
 
-Together, these delineate the six main categories of **observables**:
+Together, these delineate the following categories of **Observables**:
 
-| | Non-countable | Countable | |
+| Arity of dependence | Dependence | Structural observation| Functional observation
 | --- | --- | --- | --- |
-| Structural | Quality | Subject | Structural relationship |
-| Functional  | Process | Event | Functional relationship |
+| 0 | No | Substantial | Event | 
+| 1  | Yes| Quality | Process | 
+| 2  | Yes | Structural  relationship | Functional relationship | 
 
-These observables are further articulated in ODO-IM to provide a solid foundation for any ontology of scientific observations.
+These Observables are further articulated in ODO-IM to provide a solid foundation for any ontology of scientific observations.
 
-- The main logical dimensions for **predicates** are based on the perspective that certain predicates provide epistemic accounts rather than just describing the characteristics of the observables:
+- The main logical dimensions for **Predicates** are based on the perspective that certain Predicates provide epistemic accounts rather than just describing the characteristics of the Observables or their physical location:
     + Epistemic: Identities, Domain
     + Attribute (Ordering and SubjectiveAttribute), Realms, Domain, and Role
 
