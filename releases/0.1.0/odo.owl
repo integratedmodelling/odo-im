@@ -770,7 +770,7 @@ Main author</dc:contributor>
                 <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Observable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>Descriptions are plans that specify the Contextualization activities that produce Resources representing the state of their stated Observable(s) in the chosen context. In order to do so, they may access other Resources as specified by successively resolved Descriptions.</rdfs:comment>
+        <rdfs:comment>Descriptions are plans that specify the Contextualization activities that produce Resources representing the state of their stated Observable(s) in the chosen scope of observation. In order to do so, they may access other Resources as specified by successively resolved Descriptions.</rdfs:comment>
     </owl:Class>
     
 
