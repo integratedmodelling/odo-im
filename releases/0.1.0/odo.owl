@@ -15,7 +15,8 @@
         <owl:versionIRI rdf:resource="http://integratedmodelling.org/odo/0.10.0"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
         <dc:contributor xml:lang="en">Ferdinando Villa (ferdinando.villa at bc3research.org)
-Main author</dc:contributor>
+Main author
+Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
         <dc:license xml:lang="en">Copyright (c) 2010-2018 integratedmodelling.org.  All rights reserved. This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.</dc:license>
         <rdfs:comment>The ODO-IM ontology is a core product maintained by the Integrated Modelling Partnership (IMP). It specifies a view of the scientific process that can be implemented in software to support the IMP&apos;s goals of modular, distributed, semantically explicit and integrated scientific computing and modeling, according to the FAIR principles. ODO-IM provides five main core concepts:
 
