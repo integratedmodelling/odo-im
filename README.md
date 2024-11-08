@@ -6,7 +6,7 @@
      
 
 - **Authors**: [Integrated Modelling Partnership](http://www.integratedmodelling.org); Ferdinando Villa, Ph.D.; Greta Adamo, Ph.D.
-- [**Full white paper in Semantic Web Journal**](https://www.semantic-web-journal.net/content/ontology-descriptions-and-observations-integrated-modelling-odo-im)
+- [**Full white paper**](https://drive.google.com/file/d/1_NerPv2nv7Lf2Sw4QVvb7hRPFlhK3QaJ/view?usp=sharing)
 - **License**: [CC-BY v4.0](http://creativecommons.org/licenses/by/4.0/)
 - [**Bug reports and feature requests**](https://github.com/integratedmodelling/odo-im/issues)
 
