@@ -6,8 +6,10 @@
      
 
 - **Authors**: [Integrated Modelling Partnership](http://www.integratedmodelling.org); Ferdinando Villa, Ph.D.; Greta Adamo, Ph.D.
+- [**Full white paper**](https://drive.google.com/file/d/1h1pPo9zl8Cng_S7u6AAj1swebeQiOVTt/view?usp=drive_link)
 - **License**: [CC-BY v4.0](http://creativecommons.org/licenses/by/4.0/)
 - [**Bug reports and feature requests**](https://github.com/integratedmodelling/odo-im/issues)
+
 
 ## About ODO-IM
 
