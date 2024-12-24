@@ -13,7 +13,6 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://integratedmodelling.org/odo">
         <owl:versionIRI rdf:resource="http://integratedmodelling.org/odo/0.10.0"/>
-        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
         <dc:contributor xml:lang="en">Ferdinando Villa (ferdinando.villa at bc3research.org)
 Main author
 Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
@@ -437,6 +436,14 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#isAdjacentTo -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#isAdjacentTo">
+        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#relatesTo"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://integratedmodelling.org/odo#isConstituentOf -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#isConstituentOf">
@@ -570,6 +577,12 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://www.w3.org/ns/prov#wasGeneratedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -596,6 +609,14 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Acknowledgement">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Instantiation"/>
         <rdfs:comment>Acknowledgement incarnates an observation by the statement of its existence and characteristics. All observation sessions start with the Acknowledgement of a context observation. It is always an Instantiation of a single Subject.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#Activity -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Activity">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ProvenanceNode"/>
     </owl:Class>
     
 
@@ -719,7 +740,7 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Contextualization -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Contextualization">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Activity"/>
         <rdfs:comment>Contextualization is the Activity that uses Descriptions to transform one or more Resource into one or more derived Resources.</rdfs:comment>
     </owl:Class>
     
@@ -773,7 +794,7 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Description -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Description">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Plan"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#contextualizes"/>
@@ -844,6 +865,14 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#IntensivePhysicalProperty"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <unit>J</unit>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#Entity -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Entity">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ProvenanceNode"/>
     </owl:Class>
     
 
@@ -1027,6 +1056,14 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#Plan -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#Plan">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ProvenanceNode"/>
+    </owl:Class>
+    
+
+
     <!-- http://integratedmodelling.org/odo#Predicate -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Predicate">
@@ -1132,6 +1169,14 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Proportion">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#RelativeQuantity"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
+    </owl:Class>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#ProvenanceNode -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#ProvenanceNode">
+        <rdfs:comment>Superclass for the three Prov-O concepts used here, replicated and made equivalent to the correspondent Prov-O classes if the ontology is made available.</rdfs:comment>
     </owl:Class>
     
 
@@ -1265,7 +1310,7 @@ Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Resource -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Resource">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
