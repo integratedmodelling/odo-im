@@ -55,10 +55,18 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#isCollective -->
+
+    <owl:AnnotationProperty rdf:about="http://integratedmodelling.org/odo#isCollective">
+        <rdfs:comment>True if the concept wants to be observed collectively</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://integratedmodelling.org/odo#isDeniable -->
 
     <owl:AnnotationProperty rdf:about="http://integratedmodelling.org/odo#isDeniable">
-        <rdfs:comment>Used to indicate a trait that can be denied.</rdfs:comment>
+        <rdfs:comment>Used to indicate an attribute that can be denied.</rdfs:comment>
     </owl:AnnotationProperty>
     
 
