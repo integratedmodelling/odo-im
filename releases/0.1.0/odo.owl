@@ -273,7 +273,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#hasAttribute -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasAttribute">
-        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#traitProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#hasTrait"/>
     </owl:ObjectProperty>
     
 
@@ -324,7 +324,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#hasIdentity -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasIdentity">
-        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#traitProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#hasTrait"/>
     </owl:ObjectProperty>
     
 
@@ -340,7 +340,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#hasRealm -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasRealm">
-        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#traitProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#hasTrait"/>
     </owl:ObjectProperty>
     
 
@@ -377,8 +377,14 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#hasSubjectiveTrait -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasSubjectiveTrait">
-        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#traitProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#hasTrait"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#hasTrait -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#hasTrait"/>
     
 
 
@@ -576,12 +582,6 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#structuringObjectProperty -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#structuringObjectProperty"/>
-    
-
-
-    <!-- http://integratedmodelling.org/odo#traitProperty -->
-
-    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#traitProperty"/>
     
 
 
