@@ -127,6 +127,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#affects">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Event"/>
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Process"/>
         <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Quality"/>
         <rdfs:comment>A process affects a Quality in its context when it is able to change the state of the correspondent quality as time moves on. If this relationship exists, the State that describes the Quality is dynamic.</rdfs:comment>
@@ -138,6 +139,24 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#appliesTo">
         <rdfs:comment>Allows restricting the range of observables that an observable applies to, the meaning of which depends on the type of observable. TODO specialize this and use the proper one for each type.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#changed -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#changed">
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Quality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#changes -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#changes">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Event"/>
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Process"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Quality"/>
     </owl:ObjectProperty>
     
 
