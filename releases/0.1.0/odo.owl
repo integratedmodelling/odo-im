@@ -598,6 +598,30 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#requiresAttribute -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#requiresAttribute"/>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#requiresExtent -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#requiresExtent"/>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#requiresIdentity -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#requiresIdentity"/>
+    
+
+
+    <!-- http://integratedmodelling.org/odo#requiresRealm -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#requiresRealm"/>
+    
+
+
     <!-- http://integratedmodelling.org/odo#structuringObjectProperty -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#structuringObjectProperty"/>
@@ -607,6 +631,23 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://www.w3.org/ns/prov#wasGeneratedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://integratedmodelling.org/odo#requiresAuthority -->
+
+    <owl:DatatypeProperty rdf:about="http://integratedmodelling.org/odo#requiresAuthority"/>
     
 
 
