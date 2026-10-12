@@ -62,6 +62,12 @@ A generic OWL anonymous witness does not satisfy this requirement. The exact syn
 for multiple targets, including list versus intersection, remains open. Implementation
 has newly started in a separate local task and is not complete.
 
+ABOUT representation remains a general, extensible subject-matter relation. The user
+envisions later norm-related concepts and prefers avoiding unnecessary new keywords.
+Currently accepted validation is limited to KnowledgeDomain -> PhysicalDomain;
+future endpoint types and their semantic contracts are unspecified. Generality of
+the representation does not authorize additional accepted endpoints or semantics.
+
 Geography -> Earth is intended; the existing Physical-tagged geography is the migration
 baseline. An `in domain` preamble applies to owned declarations, including nested ones;
 imports and references retain their original domains. Multiple-domain grammar is deferred.
@@ -149,6 +155,23 @@ Shared twins do not exist: cross-twin matching is specification-only. After alig
 target, semantics, units, scope, and modality, provider guarantees must be a subset of
 consumer acceptance. Overlap is insufficient; unresolved alignment is not incompatibility.
 No access grants or synthesized computations follow from matching.
+
+## Multi-project worldview ingestion and subscriptions
+
+A worldview comes from multiple projects through incremental contributions. The
+reasoner must record supplying-service and project provenance in a subscription
+registry, with a subscription contract supporting periodic polling for changes or
+requested notifications. The user explicitly approved this direction and rejected
+the current atomic source-ingestion model.
+
+Incremental source ingestion is distinct from atomic activation of a coherent,
+validated operational snapshot. Assemble and validate changes in an isolated candidate;
+an invalid or unresolved candidate preserves the prior valid snapshot. Publication
+here means activation of the operational snapshot, not external release publication.
+There is no requirement for a distributed atomic load of all source projects or
+services. Polling intervals, notification protocols, and removal policies remain open.
+A design-first task has started; the contract is not yet implemented and no live
+subscriptions are claimed.
 
 ## Validation responsibility and implementation tracks
 
@@ -258,6 +281,8 @@ These are proposals or unresolved choices, not approved contracts:
 5. Runtime schema, enforcement, and error policy, following the design checkpoint.
 6. Expansion limits, deduplication, ordering, and failure diagnostics.
 7. Institutional/evaluative domain placement.
+8. Future ABOUT endpoint types and contracts beyond KnowledgeDomain -> PhysicalDomain.
+9. Worldview subscription polling intervals, notification protocols, and removal policies.
 
 Migration of the divergent legacy bundles and mirroring this repository document to
 the discussion Page also remain coordination work. Multiple-domain grammar is deferred.
