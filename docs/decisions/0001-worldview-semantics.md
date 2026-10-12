@@ -145,6 +145,12 @@ and identified deferred resolutions as needing the same transaction boundary. Th
 does not approve automatic retry or cycle policies, numeric defaults, or evidence-retention
 choices. Runtime foundation implementation has separately started; it is not complete.
 
+Missing classification information is an explicit pending state, eligible to resume
+when prerequisites change. Successful empty classification remains a valid outcome;
+execution errors are failures. There are no automatic timed retries unless configured.
+This approved deferred lifecycle does not select the remaining retry/cycle policies
+or evidence-retention choices.
+
 ## Runtime and matching
 
 Transport and enforce the target, complete bearer expression, scope, modality, typed
@@ -155,6 +161,17 @@ Shared twins do not exist: cross-twin matching is specification-only. After alig
 target, semantics, units, scope, and modality, provider guarantees must be a subset of
 consumer acceptance. Overlap is insufficient; unresolved alignment is not incompatibility.
 No access grants or synthesized computations follow from matching.
+
+Observation strategies express scientific and contextualization pathways where
+applicable. The core workflow manages generic readiness, coverage, continuation,
+snapshots, and transactions. The user confirms the original deferred-resolution
+direction and notes that models in specialized contexts may cover an observable by
+merging qualities in instantiated secondary substantials. This example motivates the
+strategy/core design distinction; it is not a claim of an implemented feature. The
+runtime-design task is inspecting the exact API split.
+
+Value operators, including `whose`, remain a major resolver gap. Current parsing,
+transport, and subjectivity preservation do not implement their evaluation.
 
 ## Multi-project worldview ingestion and subscriptions
 
