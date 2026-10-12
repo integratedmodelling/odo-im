@@ -1,0 +1,8 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>local.validation</groupId><artifactId>odo-check</artifactId><version>1</version>
+  <dependencies>
+    <dependency><groupId>net.sourceforge.owlapi</groupId><artifactId>owlapi-distribution</artifactId><version>5.5.1</version></dependency>
+    <dependency><groupId>net.sourceforge.owlapi</groupId><artifactId>org.semanticweb.hermit</artifactId><version>1.4.5.519</version><exclusions><exclusion><groupId>net.sourceforge.owlapi</groupId><artifactId>owlapi-distribution</artifactId></exclusion></exclusions></dependency>
+  </dependencies>
+</project>
