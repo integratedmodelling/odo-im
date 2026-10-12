@@ -47,6 +47,21 @@ existential nor the annotation implements that explicit-link check. Routine OWL
 property names may be selected consistently; actual language forms and semantic
 changes still require review.
 
+The approved compositional syntax direction is `KnowledgeDomain about Earth`,
+rather than a dedicated `interprets` clause. Approval was conditional on a grammar
+check; the independent reviewer reported that `about` is unused in the `.xtext`
+grammars and that `Worldview.xtext` lines 19 and 44 already accept `ConceptExpression`,
+so only a new modifier is needed. The subject-matter relation maps to
+`interpretsPhysicalDomain` and remains separate from `INHERENT` and bearer
+reconciliation. An owning ontology's domain being `about Earth` does not make Earth
+the bearer of all its qualities.
+
+A specialized domain may inherit explicitly authored grounding: effective authored
+provenance through inheritance counts toward the required physical interpretation.
+A generic OWL anonymous witness does not satisfy this requirement. The exact syntax
+for multiple targets, including list versus intersection, remains open. Implementation
+has newly started in a separate local task and is not complete.
+
 Geography -> Earth is intended; the existing Physical-tagged geography is the migration
 baseline. An `in domain` preamble applies to owned declarations, including nested ones;
 imports and references retain their original domains. Multiple-domain grammar is deferred.
@@ -233,9 +248,10 @@ No full k.LAB application suite was run for this artifact-only consumer change.
 
 These are proposals or unresolved choices, not approved contracts:
 
-1. Actual language forms for physical interpretation and relation naming/syntax for
-   the normative framework. The OWL name `interpretsPhysicalDomain` is approved;
-   explicit-link validation remains implementation work for the validation track.
+1. Exact multi-target syntax (list versus intersection) for the approved `about`
+   modifier, and relation naming/syntax for the normative framework. The OWL name
+   `interpretsPhysicalDomain` and the compositional `about` direction are approved;
+   modifier implementation and effective authored-link validation remain in progress.
 2. Broadened describes source/target matrix and language-to-OWL mapping (proposal above).
 3. Runtime tolerance default and algorithm.
 4. Exact-only category syntax and explicit sufficient-definition syntax.
