@@ -1,6 +1,6 @@
 # Worldview semantics and ODO 0.1.1
 
-Status: approved normative contracts; ODO foundation implemented locally, other implementation tracks pending.
+Status: approved normative contracts; ODO foundation and reviewed language/services changes merged locally; runtime gaps remain.
 Date: 2026-10-12.
 
 This repository document is canonical. The [discussion Page](https://chatgpt.com/space/page_7884472cce9c8191bd8ffcd4f9bab73a)
@@ -41,9 +41,9 @@ OWL typing: KnowledgeDomain -> PhysicalDomain, with an existential
 restriction on KnowledgeDomain, no functional/inverse-functional or maximum-cardinality axiom.
 An OWL existential alone cannot enforce an explicitly declared target under the
 open-world assumption. k.LAB must reject missing or wrongly typed explicit links
-before OWL translation. The existential is implemented; explicit authored-link
-validation remains assigned to the validation/domain-ingestion track. Neither the
-existential nor the annotation implements that explicit-link check. Routine OWL
+before OWL translation. The existential and reviewed ABOUT authored-grounding
+validation are implemented in the local checkpoint below. Neither the existential
+nor the annotation alone implements that explicit-link check. Routine OWL
 property names may be selected consistently; actual language forms and semantic
 changes still require review.
 
@@ -58,8 +58,9 @@ the bearer of all its qualities.
 
 A specialized domain may inherit explicitly authored grounding: effective authored
 provenance through inheritance counts toward the required physical interpretation.
-A generic OWL anonymous witness does not satisfy this requirement. Implementation
-and review continue in a separate local task; full integration is not complete.
+A generic OWL anonymous witness does not satisfy this requirement. ABOUT semantics
+and authored-grounding handling passed independent review and are merged locally;
+this does not imply installed artifacts, live activation, or completed runtime behavior.
 
 The approved multiple-target convention is repeated modifiers:
 `KnowledgeDomain about Earth about Society` requires separate subject-matter links
@@ -221,6 +222,38 @@ Subjectivity, classification expansion, validation, and runtime design are assig
 other isolated tracks. This increment owns ODO release artifacts and canonical decisions;
 the listed contracts are not a claim that those other implementations are complete.
 
+## Verified local implementation checkpoint
+
+The supplied independently verified integration checkpoint is now merged into the
+main local `develop` branches:
+
+- klab-services: `9144e79b5516533456aafaaaa04026ba5e1b9041`.
+- klab-languages: `9bbc9d1173e380ba134cf6a237a3474721667075`.
+
+ODO's reviewed release and decisions were already fast-forwarded to local `master`
+at `58fa7d6e505ed4e351fa4e1c78cab2a8b0443fa7`; this checkpoint update changes only
+the decision document. ABOUT semantics and the combined subjectivity, copy,
+occurrence, and privacy guard passed independent review. These are merged source
+implementations, not claims of live service behavior.
+
+Reported verification: all 68 focused tests passed. The combined run using the
+actual declared Xtext 2.32 artifact ran 704 tests: 698 passed, four failed, one
+errored, and one was skipped. The four failures and one error were freshly
+reproduced on the language baseline. This is a baseline-qualified result, not an
+all-green combined suite. These cross-repository results are the supplied verified
+checkpoint, not tests rerun by this document-only update.
+
+Installed language JARs and live services remain unchanged. Builds require the
+matching private language artifacts; no install, push, or deployment is part of
+this checkpoint.
+
+Still unimplemented are runtime classification continuation, end-to-end typed
+constraint enforcement/evaluation, and multi-source snapshot publication and
+subscription behavior. Cross-twin matching remains specification-only. Merged
+occurrence/copy/privacy safeguards and ABOUT validation do not establish these
+runtime capabilities. Value-operator evaluation, including `whose`, remains a
+resolver gap; preserving parsing, transport, and subjectivity is not evaluation.
+
 ## Descriptive relation matrix: proposal for review
 
 This matrix is an **unapproved option, not an accepted recommendation**. In particular,
@@ -258,7 +291,7 @@ Local search under `C:/Users/Ferd/git` found these bundles:
 
 | Repository and path | Baseline | Disposition |
 | --- | --- | --- |
-| klab-services: `klab.services.reasoner/src/main/resources/knowledge/odo.owl` | byte-identical to authoritative 0.1.0; 89 class and 59 object-property declarations | updated in isolated consumer branch |
+| klab-services: `klab.services.reasoner/src/main/resources/knowledge/odo.owl` | byte-identical to authoritative 0.1.0; 89 class and 59 object-property declarations | updated in isolated consumer branch, now integrated into local develop |
 | klab: `klab.engine/src/main/resources/knowledge/odo.owl` | divergent; 85 class and 40 object-property declarations | unchanged; migration compatibility decision needed |
 | diocan: `klab.engine/src/main/resources/knowledge/odo.owl` | divergent; 85 class and 40 object-property declarations | unchanged; migration compatibility decision needed |
 
@@ -273,8 +306,8 @@ Baseline SHA-256 values:
 Acceptance includes matching release metadata and consumer bytes, unchanged historical
 artifacts, pairwise disjoint but individually satisfiable domain classes, satisfiable
 Domain outside the three branches, and no regression in ontology consistency or
-previously satisfiable named classes. These checks do not substitute for the pending
-k.LAB validation work.
+previously satisfiable named classes. These checks do not substitute for k.LAB
+validation or the remaining runtime work.
 
 Verified locally on 2026-10-12 with OWLAPI 5.5.1 and HermiT 1.4.5.519:
 baseline and new ontology consistent; zero unsatisfiable named classes in either;
@@ -292,7 +325,8 @@ satisfiability, and the open-world explicit-link boundary fixture. The complete
 baseline/regression checks passed again. The synchronized working-copy SHA-256 is
 `2c152c15e44db0e8c2bf41e21a08671e16b80d10373ac7d2efa95eced1b1b90e`.
 See `tests/README.md` and `tests/DomainReleaseCheck.java` for reproduction.
-No full k.LAB application suite was run for this artifact-only consumer change.
+No full k.LAB application suite was run by the ODO artifact task. The separate
+integration checkpoint and its baseline-qualified results are recorded above.
 
 ## Open choices and remaining coordination
 
@@ -300,8 +334,8 @@ These are proposals or unresolved choices, not approved contracts:
 
 1. Relation naming/syntax for the normative framework. The OWL name
    `interpretsPhysicalDomain`, compositional `about`, and repeated-modifier
-   multiple-target convention are approved; modifier implementation, roundtrip
-   preservation, and effective authored-link validation remain under implementation/review.
+   multiple-target convention are approved; reviewed ABOUT implementation is merged
+   locally as recorded above, without claiming live activation or broader endpoint support.
 2. Broadened describes source/target matrix and language-to-OWL mapping (proposal above).
 3. Runtime tolerance default and algorithm.
 4. Exact-only category syntax and explicit sufficient-definition syntax.
