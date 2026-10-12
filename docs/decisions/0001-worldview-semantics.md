@@ -58,9 +58,19 @@ the bearer of all its qualities.
 
 A specialized domain may inherit explicitly authored grounding: effective authored
 provenance through inheritance counts toward the required physical interpretation.
-A generic OWL anonymous witness does not satisfy this requirement. The exact syntax
-for multiple targets, including list versus intersection, remains open. Implementation
-has newly started in a separate local task and is not complete.
+A generic OWL anonymous witness does not satisfy this requirement. Implementation
+and review continue in a separate local task; full integration is not complete.
+
+The approved multiple-target convention is repeated modifiers:
+`KnowledgeDomain about Earth about Society` requires separate subject-matter links
+to Earth and Society. `KnowledgeDomain about (A and B)` instead has one composite
+target. These examples remain subject to the current KnowledgeDomain -> PhysicalDomain
+type constraints; the syntax does not independently establish the types of named
+targets. No comma alternative is approved. Language associativity, precedence, and
+explicit grouping must make the distinction clear to the reader/modeler. Canonical
+serialization and parse/serialize roundtrips must preserve target parentheses and
+source-branch scope, without merging separate links, splitting a composite target,
+or moving an ABOUT modifier to a different source branch.
 
 ABOUT representation remains a general, extensible subject-matter relation. The user
 envisions later norm-related concepts and prefers avoiding unnecessary new keywords.
@@ -288,10 +298,10 @@ No full k.LAB application suite was run for this artifact-only consumer change.
 
 These are proposals or unresolved choices, not approved contracts:
 
-1. Exact multi-target syntax (list versus intersection) for the approved `about`
-   modifier, and relation naming/syntax for the normative framework. The OWL name
-   `interpretsPhysicalDomain` and the compositional `about` direction are approved;
-   modifier implementation and effective authored-link validation remain in progress.
+1. Relation naming/syntax for the normative framework. The OWL name
+   `interpretsPhysicalDomain`, compositional `about`, and repeated-modifier
+   multiple-target convention are approved; modifier implementation, roundtrip
+   preservation, and effective authored-link validation remain under implementation/review.
 2. Broadened describes source/target matrix and language-to-OWL mapping (proposal above).
 3. Runtime tolerance default and algorithm.
 4. Exact-only category syntax and explicit sufficient-definition syntax.
