@@ -88,6 +88,43 @@ its absence is unresolved and cannot certify compliance.
 
 ## Describes and bearer constraints
 
+### Approved configuration-description addition (2026-10-13)
+
+The user approved ordinary `describes` from **Domain to Configuration**, because
+configurations are recognized patterns appropriate as domain subject matter. This
+is a precise additional pair, not approval of unrestricted source/target bounds.
+`System` and its `EarthSystem` intermediate belong in the worldview; ODO retains
+the general Configuration target. Actual worldview content changes remain deferred
+until discovery and IDE performance work is reviewed.
+
+The user explicitly chose **0.1.1 as a working version**. Update its authoritative
+numbered file, `latest`, and the consumer together, without modifying historical
+0.1.0. This local implementation is not a remote publication or live installation.
+
+Add `describesConfiguration` with OWL domain Domain and range Configuration, as a
+separate property with **no subproperty link to describesQuality**. Preserve
+describesQuality's Predicate-or-Quality source and Quality target, and all five
+specialized quality predicates. Ordinary language `describes` dispatches by pair:
+Domain/Configuration uses the new property; existing Predicate-or-Quality/Quality
+uses describesQuality. Other pairs remain invalid. Domain/Quality remains part of
+the existing contract, since Domain is a Predicate.
+
+Emit necessary class restrictions, not individuals, reverse definitions, exclusive
+targets, or cardinality. Inherited restrictions remain conjunctive. Each existential
+may use an independent witness; disjoint targets alone do not prove conflict.
+Check applicable universals and cardinalities before emission; reject proven
+impossibility and retain bootstrap uncertainty without claiming DL consistency.
+Configuration targets never enter quality-description bearer propagation, and
+configuration descriptions never satisfy concrete Knowledge-quality grounding.
+`about`/interpretsPhysicalDomain remains independent from both descriptions and
+inherency. Typed `as` value semantics remain unresolved authoring evidence.
+
+Generic complete restriction-query APIs are a separate follow-up. The existing
+unary-operator `describedType` query is unchanged; nearest/flattened fillers are
+not evidence of a complete inherited description conjunction.
+
+The broader matrix below remains an unapproved option outside this accepted pair.
+
 The general describes contract is relaxed; specializations may impose stronger bounds.
 The default is compatible universal bearers; cross-bearer cases require an explicit
 relationship. Infer missing X constraints from Y, retain narrower constraints, and refine
@@ -269,6 +306,7 @@ There is no standalone OWL property named `describes` in the inspected source.
 | --- | --- | --- | --- | --- |
 | General `describes` (language concept; proposed OWL property) | absent | absent | unrestricted (`owl:Thing`, by omitting domain) | unrestricted (`owl:Thing`, by omitting range) |
 | `describesQuality` | Predicate union Quality | Quality | Predicate union Quality | Quality |
+| `describesConfiguration` (approved addition, working 0.1.1) | Domain | Configuration | Domain | Configuration |
 | `increasesWith` | Quality | Quality | Quality | Quality |
 | `decreasesWith` | Quality | Quality | Quality | Quality |
 | `marksQuality` | Quality | Presence | Quality | Presence |

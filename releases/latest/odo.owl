@@ -271,6 +271,14 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#describesConfiguration -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#describesConfiguration">
+        <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Domain"/>
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Configuration"/>
+        <rdfs:comment>Necessary characterization of a domain by a recognized configuration or system pattern. Independent descriptions may use independent witnesses. Does not imply detection, instantiation, computation, causation, reverse sufficiency, or bearer inherency. Distinct from describesQuality and interpretsPhysicalDomain.</rdfs:comment>
+    </owl:ObjectProperty>
+
     <!-- http://integratedmodelling.org/odo#describesQuality -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#describesQuality">

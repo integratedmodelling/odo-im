@@ -59,6 +59,41 @@ public class DomainReleaseCheck {
           f.getOWLObjectMinCardinality(2, interprets, physical))), "multiple physical targets disallowed");
       check(reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(physical,
           f.getOWLObjectMinCardinality(2, interprets.getInverseProperty(), knowledge))), "multiple interpreters disallowed");
+      var configuration = f.getOWLClass(IRI.create(ns + "Configuration"));
+      var quality = f.getOWLClass(IRI.create(ns + "Quality"));
+      var describesConfiguration = f.getOWLObjectProperty(IRI.create(ns + "describesConfiguration"));
+      var describesQuality = f.getOWLObjectProperty(IRI.create(ns + "describesQuality"));
+      check(ontology.containsAxiom(f.getOWLObjectPropertyDomainAxiom(describesConfiguration, domain)),
+          "configuration description source");
+      check(ontology.containsAxiom(f.getOWLObjectPropertyRangeAxiom(describesConfiguration, configuration)),
+          "configuration description target");
+      check(!reasoner.isEntailed(f.getOWLSubObjectPropertyOfAxiom(describesConfiguration, describesQuality)),
+          "configuration descriptions inherit quality range");
+      check(ontology.getAxioms(AxiomType.OBJECT_PROPERTY_RANGE).stream().filter(a -> a.getProperty().equals(describesQuality))
+          .allMatch(a -> a.getRange().equals(quality)), "quality description range changed");
+      var descriptionFixture = manager.createOntology(IRI.create("urn:odo-test:configuration-description"));
+      manager.addAxioms(descriptionFixture, ontology.getAxioms());
+      var earth = f.getOWLClass(IRI.create("urn:odo-test:EarthSystem"));
+      var mars = f.getOWLClass(IRI.create("urn:odo-test:MarsSystem"));
+      var parent = f.getOWLClass(IRI.create("urn:odo-test:EarthDomain"));
+      var child = f.getOWLClass(IRI.create("urn:odo-test:MultiDomain"));
+      manager.addAxioms(descriptionFixture, Set.of(
+          f.getOWLSubClassOfAxiom(earth, configuration), f.getOWLSubClassOfAxiom(mars, configuration),
+          f.getOWLDisjointClassesAxiom(earth, mars), f.getOWLSubClassOfAxiom(parent, physical),
+          f.getOWLSubClassOfAxiom(parent, f.getOWLObjectSomeValuesFrom(describesConfiguration, earth)),
+          f.getOWLSubClassOfAxiom(child, parent),
+          f.getOWLSubClassOfAxiom(child, f.getOWLObjectSomeValuesFrom(describesConfiguration, mars))));
+      var descriptionReasoner = new Reasoner.ReasonerFactory().createReasoner(descriptionFixture);
+      try {
+        check(descriptionReasoner.isSatisfiable(child), "independent configuration witnesses conflated");
+        check(!descriptionReasoner.isEntailed(f.getOWLSubClassOfAxiom(parent, quality)), "Domain inferred Quality");
+        check(!descriptionReasoner.isEntailed(f.getOWLSubClassOfAxiom(earth, quality)), "Configuration inferred Quality");
+        check(!descriptionReasoner.isSatisfiable(f.getOWLObjectIntersectionOf(child,
+            f.getOWLObjectMaxCardinality(1, describesConfiguration, configuration))), "maximum-one conflict missed");
+        check(!descriptionReasoner.isSatisfiable(f.getOWLObjectIntersectionOf(parent,
+            f.getOWLObjectAllValuesFrom(describesConfiguration, mars))), "universal conflict missed");
+        check(descriptionFixture.getAxioms(AxiomType.CLASS_ASSERTION).isEmpty(), "description fixture uses instances");
+      } finally { descriptionReasoner.dispose(); }
       // Deliberately satisfiable: OWL can supply an anonymous witness. This is why
       // k.LAB must separately reject authored KnowledgeDomains with no explicit link.
       var witnessOntology = manager.createOntology(IRI.create("urn:odo-test:open-world"));
@@ -73,6 +108,7 @@ public class DomainReleaseCheck {
       check(before.equals(after), "named-class satisfiability regression: " + after);
       System.out.println("PASS: versions, byte parity, consistency, disjointness, nonexhaustiveness, Epistemic distinction, interpretation typing/existential/many-to-many, open-world validation boundary.");
       System.out.println("Baseline unsatisfiable named classes (unchanged): " + before);
+      System.out.println("PASS: describesConfiguration typing, quality-range isolation, independent inherited witnesses, universal/cardinality conflicts, class-level translation.");
     } finally { oldReasoner.dispose(); reasoner.dispose(); }
   }
 }

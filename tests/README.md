@@ -27,3 +27,9 @@ restriction, and satisfiability with multiple physical targets and multiple inte
 An explicit open-world fixture also proves that a KnowledgeDomain individual without
 an asserted link remains OWL-consistent. It does not implement or test the pending
 k.LAB explicit interpretation-link validation.
+
+The working 0.1.1 checks additionally cover the approved Domain-to-Configuration
+description property, its isolation from the Quality range, independent inherited
+witnesses, universal/cardinality conflicts, and absence of instance assertions in
+the configuration-description fixture. Consumer compiler acceptance, rejection,
+bearer isolation and atomic failure tests live in `ConfigurationDescriptionSupportTest`.
