@@ -112,8 +112,9 @@ the existing contract, since Domain is a Predicate.
 Emit necessary class restrictions, not individuals, reverse definitions, exclusive
 targets, or cardinality. Inherited restrictions remain conjunctive. Each existential
 may use an independent witness; disjoint targets alone do not prove conflict.
-Check applicable universals and cardinalities before emission; reject proven
-impossibility and retain bootstrap uncertainty without claiming DL consistency.
+Check applicable universals and cardinalities during final whole-candidate OWL
+validation before publication. Reject proven impossibility and preserve the prior
+accepted generation; retain unresolved evidence without claiming DL consistency.
 Configuration targets never enter quality-description bearer propagation, and
 configuration descriptions never satisfy concrete Knowledge-quality grounding.
 `about`/interpretsPhysicalDomain remains independent from both descriptions and

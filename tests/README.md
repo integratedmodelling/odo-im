@@ -31,5 +31,8 @@ k.LAB explicit interpretation-link validation.
 The working 0.1.1 checks additionally cover the approved Domain-to-Configuration
 description property, its isolation from the Quality range, independent inherited
 witnesses, universal/cardinality conflicts, and absence of instance assertions in
-the configuration-description fixture. Consumer compiler acceptance, rejection,
-bearer isolation and atomic failure tests live in `ConfigurationDescriptionSupportTest`.
+the configuration-description fixture. Consumer typed dispatch and bearer-isolation
+tests live in `WorldviewDeclarationSupportTest`. Whole-candidate OWL acceptance,
+logical rejection and preservation of the prior accepted generation are covered
+by `SemanticEnvironmentFactoryTest` and `CandidatePublicationCoordinatorTest` in
+klab-services.
