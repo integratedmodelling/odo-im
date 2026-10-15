@@ -209,12 +209,24 @@ must support a `within` qualification so a specialized contextual bearer can be
 checked and the role attributed and resolved only under the required conditions.
 Broader predicate conferral is not approved by this decision.
 
-Worldview declarations remain universal statements. This direction describes a
-conditional consequence rule; it does not itself assign a role to a particular,
-bind a process occurrence to its recipient, or make all eligible processes confer
-the role unconditionally. The future runtime must establish the relevant occurrence,
-contextual bearer and conditions before attribution and resolution. Eligibility,
-necessary consequence, and actual runtime attribution must remain distinct.
+Worldview declarations remain universal statements and provide a stable semantic
+spine connecting a process, a conferred role and its contextual-bearer constraints.
+The actual consequence depends on resolution. If a process confers a role, the
+future consequence engine assigns that role only if a model resolving "role in
+process-bearer" can be found. This phrase states the intended resolution question;
+it does not introduce new executable source syntax.
+
+Attribution is model-mediated under the control of scientists and their community.
+A semantic connection, eligibility classification or OWL entailment alone does not
+assign the role. The `within` qualification participates in that model resolution
+as a constraint on the specialized contextual bearer; it does not bypass resolution
+or identify a particular recipient merely through type compatibility.
+
+Finding an appropriate resolving model is a required gate, not a license to invent
+further runtime behavior. Missing-model or resolution-failure behavior, multiple
+models or candidate recipients, and attribution timing have no defaults selected
+by this decision. The declaration does not itself bind an occurrence to a recipient
+or impose an unconditional consequence.
 
 The conferral rule's `within` context must not be silently converted into ordinary
 `of` inherency, an unqualified role assignment, a global restriction on every bearer,
@@ -231,7 +243,8 @@ exposes that separate context through `SemanticSyntax.getContextualization()`;
 Reuse of this syntax/transport shape for conferral is proposed, not implemented.
 
 A future service binding should preserve the source process, conferred role,
-contextual-bearer expression, condition structure and source provenance together.
+contextual-bearer expression, model-resolution requirement, condition structure
+and source provenance together.
 In particular, retain which `within` belongs to which binding when lists or inverse
 forms are used. Do not flatten the context into the role or process expression.
 The existing `KimConceptStatement.getDeclaredInherent()` path is not a substitute:
@@ -249,10 +262,12 @@ from the adapted clause collections; it does not provide an end-to-end conferral
   between contextual bearer, role applicability and process participants. Compatible
   types do not identify the same particular or witness. Recipient identity/co-reference
   requires an explicit runtime binding; it cannot follow from a shared type alone.
-- **Conditions carried to runtime:** decide what conditions and timing are required,
-  where they are authored and how they are represented. Preserve the full expression,
-  provenance and unresolved status; do not treat transport as evaluation or an unknown
-  condition as satisfied. No trigger/completion rule or new condition syntax is selected.
+- **Conditions carried to runtime:** model-mediated attribution is agreed; decide
+  which additional conditions are required, where they are authored and how they
+  reach resolution. Preserve the full expression, provenance and unresolved status.
+  Transport is not evaluation. Missing-model/failure behavior, model or recipient
+  multiplicity, and timing remain open; no fallback, selection, retry or trigger rule
+  and no new condition syntax are selected.
 - **Inverse form:** decide whether `conferred by` is exact shorthand for the same
   forward conditional rule, preserving its contextual bearer and conditions. A reverse
   existential on the role is not equivalent to a forward process restriction. Rule
