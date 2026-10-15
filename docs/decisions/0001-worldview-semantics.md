@@ -33,8 +33,9 @@ permitted, or ought to be. The distinction is semantic function, not subject mat
 `Domain` remains under the technical `Epistemic` class; that placement
 does not make `Epistemic` equivalent to `KnowledgeDomain`.
 
-Every KnowledgeDomain must explicitly identify at least one PhysicalDomain it
-interprets. Multiple physical targets and multiple knowledge domains per physical
+Every authored KnowledgeDomain specialization must explicitly identify at least
+one PhysicalDomain it interprets. Exact generic category ownership has the narrow
+exception approved below. Multiple physical targets and multiple knowledge domains per physical
 target are permitted. The user approved **`interpretsPhysicalDomain`** on 2026-10-12.
 The OWL property is implemented in this increment.
 OWL typing: KnowledgeDomain -> PhysicalDomain, with an existential
@@ -85,6 +86,37 @@ imports and references retain their original domains. Multiple-domain grammar is
 Concrete Knowledge qualities require effective describes grounding, including inherited
 grounding; abstract roots may defer it. A Normative framework must be identifiable;
 its absence is unresolved and cannot certify compliance.
+
+### Generic Knowledge category ownership (approved 2026-10-15)
+
+An ontology preamble selecting precisely the canonical generic `odo:KnowledgeDomain`
+may remain at generic category ownership without an authored physical interpretation
+link. A pure core alias such as `imod:Knowledge` denotes that same canonical
+selection. This exception concerns that exact generic selection, not any expression
+that merely has KnowledgeDomain among its types or ancestors.
+
+Worldviews deepen through layers of abstraction. A non-root ontology may select an
+abstract domain category before articulating a subject-matter specialization. Such
+category ownership does not invent an ABOUT target or assert that an anonymous OWL
+existential witness is an authored physical interpretation.
+
+Every distinct authored KnowledgeDomain specialization still requires an explicitly
+authored or inherited PhysicalDomain interpretation. Abstract specializations are
+included: this is not a blanket abstract-domain exemption. Composed or specialized
+domain expressions do not receive the exact-selection exception. Wrongly typed or
+unknown ABOUT targets remain invalid; no authored grounding may be fabricated on
+the canonical generic KnowledgeDomain to satisfy a consumer.
+
+Concrete Knowledge-owned qualities still require effective `describes` grounding,
+including when their owning ontology selects the generic category. The exception
+does not relax quality-description validation, domain kind disjointness, ABOUT
+endpoint typing, or the separate treatment of bearer inherency. The existing OWL
+existential remains unchanged.
+
+This approved contract requires a narrowly scoped services change and independent
+review and whole-candidate validation before applying the ontology migration.
+This documentation change does not certify implementation, deployment or live
+activation; it changes no grammar, services source, OWL or release artifact.
 
 ## Describes and bearer constraints
 
