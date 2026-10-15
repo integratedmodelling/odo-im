@@ -120,43 +120,59 @@ activation; it changes no grammar, services source, OWL or release artifact.
 
 ## Describes and bearer constraints
 
-### Approved configuration-description addition (2026-10-13)
+### General Observable-range description (approved 2026-10-15)
 
-The user approved ordinary `describes` from **Domain to Configuration**, because
-configurations are recognized patterns appropriate as domain subject matter. This
-is a precise additional pair, not approval of unrestricted source/target bounds.
-`System` and its `EarthSystem` intermediate belong in the worldview; ODO retains
-the general Configuration target. Actual worldview content changes remain deferred
-until discovery and IDE performance work is reviewed.
+Plain language `describes` may target any **Observable**, including a Quality,
+Configuration, Substantial, Process, Event or Relationship. Specialized clauses
+retain their tighter contracts. This clarifies the earlier approval that general
+describes is relaxed; the former Quality-only dispatch plus Domain-to-Configuration
+exception did not express the intended general range.
 
-The user explicitly chose **0.1.1 as a working version**. Update its authoritative
-numbered file, `latest`, and the consumer together, without modifying historical
-0.1.0. This local implementation is not a remote publication or live installation.
+Retain the existing plain-source bound **Predicate union Quality**, including
+Domain through its Predicate ancestry. Broadening the target does not narrow the
+source to Domain or Quality alone and does not authorize an unrelated source
+expansion. A Knowledge-owned description need not target a Physical-owned concept;
+that is at most a convention to consider, not an endpoint validation rule.
 
-Add `describesConfiguration` with OWL domain Domain and range Configuration, as a
-separate property with **no subproperty link to describesQuality**. Preserve
-describesQuality's Predicate-or-Quality source and Quality target, and all five
-specialized quality predicates. Ordinary language `describes` dispatches by pair:
-Domain/Configuration uses the new property; existing Predicate-or-Quality/Quality
-uses describesQuality. Other pairs remain invalid. Domain/Quality remains part of
-the existing contract, since Domain is a Predicate.
+Introduce `odo:describes` with that source union and range `odo:Observable`.
+`describesQuality` and `describesConfiguration` are direct subproperties of it.
+Keep their existing domains and ranges: Predicate union Quality to Quality, and
+Domain to Configuration, respectively. All five specialized quality predicates
+remain under `describesQuality`, with their own bounds unchanged. Do not put the
+general property below either narrower property: inherited OWL domain/range
+intersections would incorrectly coerce general sources or targets.
 
-Emit necessary class restrictions, not individuals, reverse definitions, exclusive
-targets, or cardinality. Inherited restrictions remain conjunctive. Each existential
-may use an independent witness; disjoint targets alone do not prove conflict.
-Check applicable universals and cardinalities during final whole-candidate OWL
-validation before publication. Reject proven impossibility and preserve the prior
-accepted generation; retain unresolved evidence without claiming DL consistency.
-Configuration targets never enter quality-description bearer propagation, and
-configuration descriptions never satisfy concrete Knowledge-quality grounding.
-`about`/interpretsPhysicalDomain remains independent from both descriptions and
-inherency. Typed `as` value semantics remain unresolved authoring evidence.
+Ordinary language `describes` maps to the general property. Necessary restrictions
+use `SubClassOf` with existential fillers, without equivalence, reverse sufficiency,
+individuals, exclusive targets or cardinalities. Independent restrictions can use
+independent witnesses. A descriptive link is not causation or a computation; models
+enact change and may validly return an unchanged result after re-evaluation.
 
-Generic complete restriction-query APIs are a separate follow-up. The existing
-unary-operator `describedType` query is unchanged; nearest/flattened fillers are
-not evidence of a complete inherited description conjunction.
+Concrete Knowledge-owned qualities still require effective description grounding,
+including inherited general or specialized descriptions. This includes descriptions
+of Configurations; they are observer-recognized patterns, not measurement datasets.
+The generic Knowledge-category selection exception remains unchanged. ABOUT and
+its explicit PhysicalDomain grounding remain separate from description targets.
 
-The broader matrix below remains an unapproved option outside this accepted pair.
+Preserve the universal bearer compatibility, inference and refinement contract
+below. An Observable target's type alone does not identify its ultimate bearer.
+Distinguish its own bearer constraints from the target itself; a Substantial may
+serve as bearer when the relation explicitly characterizes it. Preserve full
+authored/inherited/derived conjunctions and provenance; retain narrower constraints,
+refine compatible ones locally, reject proven impossibility, and keep uncertainty
+unresolved. Do not mutate a shared target or bind different existential witnesses
+to one particular. Cross-bearer interpretations require an explicit relationship.
+Domain subject matter must not automatically become an owned quality's bearer.
+
+The prior 2026-10-13 Domain-to-Configuration addition remains valid through the
+narrow property. Its former status as the only non-Quality exception, exclusion of
+Configuration descriptions from quality grounding, and blanket bypass of bearer
+analysis are superseded by this general contract and kind-aware reconciliation.
+
+ODO 0.1.1 remains a working version. Numbered/latest candidate bytes must agree;
+historical 0.1.0 stays byte-identical. Services translation, grounding recognition,
+queries and bearer validation must be reviewed and tested together before local
+integration. This approval does not certify installed artifacts or runtime behavior.
 
 The general describes contract is relaxed; specializations may impose stronger bounds.
 The default is compatible universal bearers; cross-bearer cases require an explicit
@@ -448,37 +464,28 @@ occurrence/copy/privacy safeguards and ABOUT validation do not establish these
 runtime capabilities. Value-operator evaluation, including `whose`, remains a
 resolver gap; preserving parsing, transport, and subjectivity is not evaluation.
 
-## Descriptive relation matrix: proposal for review
+## Descriptive relation matrix (approved 2026-10-15)
 
-This matrix is an **unapproved option, not an accepted recommendation**. In particular,
-an unrestricted parent exceeds the settled wording that general describes is relaxed.
-Positive and negative source/target examples are required before choosing its bounds
-or language-to-OWL mapping. No describes hierarchy change is authorized by this table.
+The general relation has Observable range. The old unrestricted `owl:Thing` matrix
+was an unapproved option; it is not the chosen correction. OWL domain/range axioms
+infer membership, so k.LAB must validate admissibility before emission.
 
-The release already declares all five specializations below as subproperties of
-`describesQuality`. They must not be redundantly reintroduced or placed below `affects`.
-There is no standalone OWL property named `describes` in the inspected source.
+| Relation | OWL source | OWL target | Parent |
+| --- | --- | --- | --- |
+| `describes` | Predicate union Quality | Observable | none |
+| `describesQuality` | Predicate union Quality | Quality | describes |
+| `describesConfiguration` | Domain | Configuration | describes |
+| `increasesWith` | Quality | Quality | describesQuality |
+| `decreasesWith` | Quality | Quality | describesQuality |
+| `marksQuality` | Quality | Presence | describesQuality |
+| `classifiesQuality` | Predicate | Quality | describesQuality |
+| `discretizesQuality` | Ordering | QuantifiableQuality | describesQuality |
 
-| Relation | Current OWL source | Current OWL target | Proposed source | Proposed target |
-| --- | --- | --- | --- | --- |
-| General `describes` (language concept; proposed OWL property) | absent | absent | unrestricted (`owl:Thing`, by omitting domain) | unrestricted (`owl:Thing`, by omitting range) |
-| `describesQuality` | Predicate union Quality | Quality | Predicate union Quality | Quality |
-| `describesConfiguration` (approved addition, working 0.1.1) | Domain | Configuration | Domain | Configuration |
-| `increasesWith` | Quality | Quality | Quality | Quality |
-| `decreasesWith` | Quality | Quality | Quality | Quality |
-| `marksQuality` | Quality | Presence | Quality | Presence |
-| `classifiesQuality` | Predicate | Quality | Predicate | Quality |
-| `discretizesQuality` | Ordering | QuantifiableQuality | Ordering | QuantifiableQuality |
-| `interpretsPhysicalDomain` (approved; implemented) | absent in 0.1.0 | absent in 0.1.0 | KnowledgeDomain | PhysicalDomain |
-
-The option shown is to introduce a broad `describes` parent and retain the
-existing specialized bounds under `describesQuality`. This still requires agreement
-on the language-to-OWL mapping: if language `describes` continues to map directly to
-`describesQuality`, relaxing only a new parent would not relax that language relation.
-No changes to this hierarchy or its domain/range axioms are made before that decision.
-Any further specialization typing changes await approval of the open type matrix. OWL domain
-and range axioms infer membership; k.LAB validation is the admissibility boundary.
-Causality stays separate in `causing` / `caused by`; descriptive links do not imply it.
+The unary-operator `describedType` query remains a distinct existing API contract;
+nearest or flattened fillers do not represent a complete inherited description
+conjunction. Audit consumers without silently redefining that query. Descriptive
+properties are not OWL subproperties of `affects` or ABOUT. Typed `as`, monotonic
+scope, Boolean marking and discretization retain the separate contracts above.
 
 ## Consumer inventory
 
@@ -531,7 +538,8 @@ These are proposals or unresolved choices, not approved contracts:
    `interpretsPhysicalDomain`, compositional `about`, and repeated-modifier
    multiple-target convention are approved; reviewed ABOUT implementation is merged
    locally as recorded above, without claiming live activation or broader endpoint support.
-2. Broadened describes source/target matrix and language-to-OWL mapping (proposal above).
+2. Further source expansion beyond Predicate union Quality; the approved Observable-range
+   correction and language-to-OWL mapping are recorded above.
 3. Runtime tolerance default and algorithm.
 4. Exact-only category syntax and explicit sufficient-definition syntax.
 5. Runtime schema, enforcement, and error policy, following the design checkpoint.
