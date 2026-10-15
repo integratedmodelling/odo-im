@@ -200,6 +200,70 @@ execution errors are failures. There are no automatic timed retries unless confi
 This approved deferred lifecycle does not select the remaining retry/cycle policies
 or evidence-retention choices.
 
+## Conditional role conferral and contextual bearers (2026-10-15)
+
+**Agreed specification direction; future runtime, not a current implementation.**
+The user states that a forthcoming runtime consequence engine will analyze these
+implications. Process-to-Role conferral is the immediate design case. The language
+must support a `within` qualification so a specialized contextual bearer can be
+checked and the role attributed and resolved only under the required conditions.
+Broader predicate conferral is not approved by this decision.
+
+Worldview declarations remain universal statements. This direction describes a
+conditional consequence rule; it does not itself assign a role to a particular,
+bind a process occurrence to its recipient, or make all eligible processes confer
+the role unconditionally. The future runtime must establish the relevant occurrence,
+contextual bearer and conditions before attribution and resolution. Eligibility,
+necessary consequence, and actual runtime attribution must remain distinct.
+
+The conferral rule's `within` context must not be silently converted into ordinary
+`of` inherency, an unqualified role assignment, a global restriction on every bearer,
+or an OWL necessary existential. No grammar, services, consequence engine, or new
+OWL axioms are implemented by this specification update. The existing ODO `confers`
+property and dormant service-bean list do not establish such implementation.
+
+### Existing representation and proposed reuse
+
+The active Observable grammar already defines `ContextualizedExpression` as a
+concept expression with an optional `within` context expression. The language API
+exposes that separate context through `SemanticSyntax.getContextualization()`;
+`SemanticSyntaxImpl` preserves it for scoped implication/emergence references.
+Reuse of this syntax/transport shape for conferral is proposed, not implemented.
+
+A future service binding should preserve the source process, conferred role,
+contextual-bearer expression, condition structure and source provenance together.
+In particular, retain which `within` belongs to which binding when lists or inverse
+forms are used. Do not flatten the context into the role or process expression.
+The existing `KimConceptStatement.getDeclaredInherent()` path is not a substitute:
+it represents a different declaration-level bearer constraint. Current adaptation
+retains scoped implication/emergence source but excludes those scoped expressions
+from the adapted clause collections; it does not provide an end-to-end conferral path.
+
+### Semantic choices still requiring user direction
+
+- **Within target type and scope:** is the target a countable bearer, any Observable,
+  a Configuration, or a richer contextual expression? Does each conferred role have
+  its own context, or does one context scope a whole list? The existing grammar's
+  optionality does not decide whether a conferral may omit `within`.
+- **Compatibility versus identity:** specify the specialization/applicability checks
+  between contextual bearer, role applicability and process participants. Compatible
+  types do not identify the same particular or witness. Recipient identity/co-reference
+  requires an explicit runtime binding; it cannot follow from a shared type alone.
+- **Conditions carried to runtime:** decide what conditions and timing are required,
+  where they are authored and how they are represented. Preserve the full expression,
+  provenance and unresolved status; do not treat transport as evaluation or an unknown
+  condition as satisfied. No trigger/completion rule or new condition syntax is selected.
+- **Inverse form:** decide whether `conferred by` is exact shorthand for the same
+  forward conditional rule, preserving its contextual bearer and conditions. A reverse
+  existential on the role is not equivalent to a forward process restriction. Rule
+  ownership and provenance across namespaces also need an explicit policy.
+
+Before any OWL mapping, review the current `confers` range: separate Attribute and
+Role ranges mean their intersection, not the comment's "attribute or role". Neither
+a Role-only correction, a union range, nor use of untyped `confersTrait` is silently
+adopted here. The user offered to add grammar; implementation ownership and the
+remaining semantic choices must be coordinated before activating the feature.
+
 ## Runtime and matching
 
 Transport and enforce the target, complete bearer expression, scope, modality, typed
