@@ -200,6 +200,51 @@ execution errors are failures. There are no automatic timed retries unless confi
 This approved deferred lifecycle does not select the remaining retry/cycle policies
 or evidence-retention choices.
 
+## Provisional identity requirements and concretization (2026-10-15)
+
+**Early design direction; not an implemented global concretization rule.**
+The user proposes that a declaration requiring an identity root from a known
+authority is abstract. An observable or composed expression supplied a concrete,
+suitable identity from that authority may become concrete; the original declaration
+itself remains abstract. This is about semantic expressions suitable for resolution,
+not automatic instantiation of a particular or mutation of the worldview declaration.
+
+The user extends the general direction beyond authority identities: identity may
+concretize an otherwise abstract substantial, with a possible extension to dependents
+still open. Identity applies to its bearer as a whole. Other unmet requirements or
+abstract components may keep a qualified expression abstract; supplying one identity
+does not discharge every independent constraint or change the declaration itself.
+
+Whether normal predicate-to-quality reification, `type of <identity>`, should be
+illegal is an explicit open question. It is not a settled prohibition. Existing
+grammar, validator behavior and uses are neither rejected nor removed by this note.
+
+Biological individuals and ecological populations motivate this direction. The
+user also settles the proposed `economics:MarketValue` declaration as abstract,
+with a future suitable identity from an established commodity authority in mind.
+No commodity provider, identity root or authority identifier is selected here.
+No active authority requirement is invented to fill that gap.
+
+Keep two existing language forms distinct: `requires identity` names an identity
+constraint; `requires authority` configures an authority bridge on an identity
+declaration. A quantity such as MarketValue must not acquire a fabricated provider
+binding merely because its future identity requirement is under discussion.
+Existing syntax, retained requirement lists and OWL restrictions do not demonstrate
+authority-aware concretization of an expression.
+
+Before implementation, specify how a required root is recognized as belonging to
+a known configured authority, what makes a supplied identity suitable, and how
+multiple/inherited requirements and other unresolved abstract components interact.
+Matching a namespace string is not an agreed suitability test. Preserve the
+distinction between the declaration's abstract status and the status of a qualified
+observable/expression; supplying an identity does not rewrite the declaration.
+
+This provisional idea does not establish new rules for every `requires` clause,
+automatic abstractness propagation, resolver concretization, or authority fallback.
+It does not retype biological individuals/populations or alter their current
+declarations. Those mechanisms and their validation need a separate reviewed
+design; no grammar, service, resolver or OWL implementation is changed here.
+
 ## Conditional role conferral and contextual bearers (2026-10-15)
 
 **Agreed specification direction; future runtime, not a current implementation.**
