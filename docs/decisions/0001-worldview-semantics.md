@@ -248,7 +248,35 @@ execution errors are failures. There are no automatic timed retries unless confi
 This approved deferred lifecycle does not select the remaining retry/cycle policies
 or evidence-retention choices.
 
-## Provisional identity requirements and concretization (2026-10-15)
+## Approved identity-induced abstractness (2026-10-16)
+
+The owner approved implementing identity-driven de-abstraction for all observable
+kinds, including dependent observables and processes. The owner also explicitly
+approved this distinction: an authored `abstract` keyword remains an independent
+restriction; `requires identity` induces separately dischargeable abstractness.
+
+A declaration requiring an identity root is abstract for semantic resolution until
+suitable concrete identity evidence satisfies that requirement. Effective requirements
+include inherited and multiple requirements. Satisfying one does not erase others,
+an explicit abstract declaration, or independent abstract components. Ordinary
+identity hierarchies and authority identities are admitted according to their own
+compatibility and authority restrictions; namespace similarity is not suitability.
+The declaration stays unchanged. Worldview concepts remain universals: no particular
+observation is created and no existential witnesses are bound to the same individual.
+
+Existing declarations combining explicit `abstract` with identity requirements need
+deliberate migration if identity was intended as their only abstraction source.
+This includes physical:Depth, physical:Height and physical:Width in the current
+worldview. ArtifactProduction and ArtifactModification retain independent abstractness.
+No worldview migration is authorized by this implementation patch.
+
+An isolated services implementation and tests are prepared for independent review;
+this decision does not certify integration, installed artifacts or live behavior.
+The prior dated discussion below is historical; its open dependent scope and
+missing explicit-keyword distinction are superseded by this approval. The open
+question concerning `type of <identity>` is unchanged.
+
+### Prior provisional discussion (2026-10-15)
 
 **Early design direction; not an implemented global concretization rule.**
 The user proposes that a declaration requiring an identity root from a known
