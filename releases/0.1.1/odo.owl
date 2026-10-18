@@ -904,6 +904,20 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
         <rdfs:comment>A process describing change in a quality. Every quality admits this operator.</rdfs:comment>
     </owl:Class>
 
+    <!-- http://integratedmodelling.org/odo#ChangeRate -->
+
+    <owl:Class rdf:about="http://integratedmodelling.org/odo#ChangeRate">
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#describesQuality"/>
+                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
+        <rdfs:comment>A signed numeric quality representing the temporal derivative of another numeric quality. It is intensive with respect to temporal support; spatial aggregation character follows the differentiated quality and its bearer/support. Its unit is the operand difference unit per time, not a universal fixed unit. It describes the differentiated quality and concerns the same bearer and support; class-level restrictions do not bind particular observations or execute integration. A ChangeRate is a Quality, distinct from the Change process. Higher temporal derivatives remain distinct.</rdfs:comment>
+    </owl:Class>
+
     <!-- http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#ContinuousNumericallyQuantifiableQuality">

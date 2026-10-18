@@ -30,6 +30,23 @@ public class DomainReleaseCheck {
     try {
       check(oldReasoner.isConsistent(), "baseline inconsistent");
       check(reasoner.isConsistent(), "release inconsistent");
+      var derivative = f.getOWLClass(IRI.create(ns + "ChangeRate"));
+      var numeric = f.getOWLClass(IRI.create(ns + "ContinuousNumericallyQuantifiableQuality"));
+      var describesNumeric = f.getOWLObjectSomeValuesFrom(
+          f.getOWLObjectProperty(IRI.create(ns + "describesQuality")), numeric);
+      check(ontology.containsAxiom(f.getOWLSubClassOfAxiom(derivative, numeric)), "derivative numeric parent");
+      check(ontology.containsAxiom(f.getOWLSubClassOfAxiom(derivative, describesNumeric)), "derivative operand link");
+      check(ontology.annotationAssertionAxioms(derivative.getIRI()).anyMatch(a ->
+          a.getProperty().getIRI().toString().equals(ns + "isAbstract")
+              && a.getValue().asLiteral().map(v -> v.getLiteral().equals("true")).orElse(false)),
+          "derivative must be abstract");
+      check(reasoner.isSatisfiable(derivative), "derivative unsatisfiable");
+      for (String kind : List.of("IntensivePhysicalProperty", "ExtensivePhysicalProperty"))
+        check(!reasoner.isEntailed(f.getOWLSubClassOfAxiom(derivative,
+            f.getOWLClass(IRI.create(ns + kind)))), "derivative imposes universal spatial kind " + kind);
+      check(!reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(derivative,
+          f.getOWLClass(IRI.create(ns + "Process")))), "derivative confused with process");
+      System.out.println("PASS: abstract numeric ChangeRate, operand link, satisfiability and dimension-neutral foundation.");
       var domain = f.getOWLClass(IRI.create(ns + "Domain"));
       var epistemic = f.getOWLClass(IRI.create(ns + "Epistemic"));
       var kinds = List.of("PhysicalDomain", "KnowledgeDomain", "NormativeDomain").stream()
