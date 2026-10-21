@@ -12,7 +12,7 @@
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://integratedmodelling.org/odo">
-        <owl:versionIRI rdf:resource="http://integratedmodelling.org/odo/0.1.1"/>
+        <owl:versionIRI rdf:resource="http://integratedmodelling.org/odo/0.2.0"/>
         <dc:contributor xml:lang="en">Dr. Ferdinando Villa (ferdinando.villa at bc3research.org)
 Main author
 Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
@@ -27,7 +27,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
 - ODO-IM does not provide semantics for units of measurement, like other observation ontologies do. The applications where ODO-IM is used do not need units as stated instances and do not use reasoning to validate units. To support applications, ODO-IM simply lists the SI base unit textually in annotation properties linked to all PhysicalProperty observables, using SI conventions. Applications can use a unit parser to translate these into data structures for validation and conversion.
 - ODO-IM does not provide any detail on space, time and any other topologies implied in the definition of scale beyond their statement as extentual observables (Extent), as their specific interpretation is left to worldviews derived from ODO-IM.
 - ODO-IM remains as agnostic as possible about the phenomenology underlying Observables, in an effort to preserve compatibility with an arbitrary upper ontology stated in a derived worldview. It remains as agnostic as possible about the remaining details of the phenomenology underlying Observables, in an effort to preserve maximum orthogonality with an arbitrary upper ontology stated in a derived worldview. The characterization of Observables is intentionally shallow as observables are meant to specialize types in an externally provided upper ontology to form the basis of a worldview. Such links are made in the root domain of the worldview. See the full documentation for minimum expressive requirements and caveats.</rdfs:comment>
-        <owl:versionInfo xml:lang="en">Version 0.1.1</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">Version 0.2.0</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -109,6 +109,11 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://purl.org/dc/elements/1.1/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+
+    <owl:AnnotationProperty rdf:about="urn:klab:validation:observational-containment">
+        <rdfs:label>authored observational containment contract</rdfs:label>
+        <rdfs:comment>The value ADDITIVE_DECLARATION marks an explicitly asserted minimum-qualified-cardinality-zero restriction carrying a worldview grammar contract. Preserve this annotation and its complete owner/property/filler on export and reload. Do not infer permission from OWL entailment of the restriction: minimum zero is a tautology, including for undeclared types. This annotation records a declaration, not runtime collective completion or executable resolution eligibility.</rdfs:comment>
+    </owl:AnnotationProperty>
     
 
 
@@ -199,6 +204,16 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#confersTrait"/>
     
 
+
+    <!-- http://integratedmodelling.org/odo#observationallyContains -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#observationallyContains">
+        <rdfs:label>observationally contains</rdfs:label>
+        <rdfs:comment xml:lang="en">This is an observational contract, not spatial enclosure or physical parthood. It identifies a declared container/type relationship realized by a collective observation. For example Region observationallyContains Stream permits a successfully empty Stream collective; it neither asserts an existing Stream nor proves its geometry or coverage. Failed or unresolved discovery is not successful emptiness.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Canonical direction is container to contained type. The worldview clauses A contains B and B contained into A normalize to one restriction owned by A on this property with filler B; no inverse property is introduced for the surface spelling. Worldview Child is Parent within A, and nested Child within A, preserve structural ancestry and normalize to the same A-to-Child contract. The supported endpoint-family checks still apply: dependent within uses must not silently lose their native bearer. Runtime query contexts are separate.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Multiple contained types are independent, non-exhaustive contracts, not an intersection or a closed list of possible members. A successful collective observation with zero members is legal; unresolved, failed or cancelled observation is not successful emptiness. These rules do not change native bearers or identity obligations and do not make an indirect recursive method a prerequisite for direct precomputed fulfillment.</rdfs:comment>
+        <rdfs:comment>Directed from an observational container to a contained type. Worldview declarations are additive observational contracts, not physical parthood, inherency, spatial or temporal enclosure, coverage, or generic query/computation context. Their realization is a successfully completed collective observation, for which zero members is legal. A declaration creates no member and does not establish runtime completion. k.LAB preserves each authored contract as an annotated minimum-qualified-cardinality-zero restriction; this is a tautological declaration carrier in OWL, not a reasoner entailment test for permission. No inverse property, transitivity, or member existence is implied.</rdfs:comment>
+    </owl:ObjectProperty>
 
     <!-- http://integratedmodelling.org/odo#containsPart -->
 
@@ -319,16 +334,19 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#emergesFrom -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#emergesFrom">
+        <rdfs:comment xml:lang="en">For an effective configuration head, binary of is shorthand for emerges from and normalizes to this property. It never creates native isInherentTo. Explicit appliesTo names application scope; ingredients and application targets are distinct. Singleton declaration shorthand shares the explicit trigger representation; boolean alternatives retain branch scope. An asserted restriction does not execute detection or propagate application/bearer requirements backwards into ingredients.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Configuration emergence is detection, not model instantiation. Models may resolve a configuration after DETECTION produces its observation. Dependent ingredients place it under their bearer; substantial ingredients place it in root cohorts; relationships yield Networks. These intended lifecycle rules require the future observation-commit consequence engine; an asserted emergence restriction alone does not execute detection, placement or network construction.</rdfs:comment>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://integratedmodelling.org/odo#Countable"/>
                     <rdf:Description rdf:about="http://integratedmodelling.org/odo#Quality"/>
+                    <rdf:Description rdf:about="http://integratedmodelling.org/odo#Process"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
         <rdfs:domain rdf:resource="http://integratedmodelling.org/odo#Observable"/>
-        <rdfs:comment>Establishes observables emerged from quality or countable.</rdfs:comment>
+        <rdfs:comment>Establishes emergence ingredients: countable substantials, qualities or processes. Both quality and process dependents are permitted; their native bearers are not reassigned by this relationship.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -549,8 +567,9 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#isInherentTo -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#isInherentTo">
+        <rdfs:comment xml:lang="en">Interpret this shared encoding using the effective head kind. Binary of on quality/process is native inherency; on predicates it expresses language-level applicability (an applies to synonym), retaining this restriction for contextualization mechanics. Applicability does not transfer native-bearer identity or abstractness obligations merely through this property. Preserve legitimate target restrictions and head requirements. Predicate of Quality, of each Subject and of Subject support TRANSFORMATION, CLASSIFICATION and CHARACTERIZATION respectively. Configuration of is emergence, encoded with emergesFrom rather than this property. Explicit appliesTo identifies configuration application scope. No universal Countable native bearer is required for Configuration.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="http://integratedmodelling.org/odo#structuringObjectProperty"/>
-        <rdfs:comment>The generic &quot;participation&quot; relationship, specified by the &apos;of&apos; keyword and distinct from context (within) which is not identity-defining.</rdfs:comment>
+        <rdfs:comment>Native inherency, expressed by binary of: Height of Tree has Tree as its bearer, not the container of trees. Worldview declaration within expresses the separate observationallyContains contract; it is not an alternative spelling for inherency. Unary operators containing the token of retain their own derivation semantics.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -852,13 +871,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Configuration">
         <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#Observable"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://integratedmodelling.org/odo#isInherentTo"/>
-                <owl:someValuesFrom rdf:resource="http://integratedmodelling.org/odo#Countable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>Configurations represent emergent patterns (aggregates of other entities) that are generated by observations of Quality and Relationship.</rdfs:comment>
+        <rdfs:comment>Configurations are emergent observations detected from dependent or substantial ingredients. Configuration of X is emergence from X, encoded with emergesFrom, not native inherency. Explicit appliesTo identifies an application target. Configuration does not require an isInherentTo Countable witness: dependent-ingredient detection places an observation under its bearer, while substantial-ingredient detection places it in root cohorts. These are observation lifecycle rules, not an unconditional native-bearer axiom. Models resolve an already emerged configuration; they do not instantiate one.</rdfs:comment>
     </owl:Class>
     
 

@@ -36,3 +36,10 @@ tests live in `WorldviewDeclarationSupportTest`. Whole-candidate OWL acceptance,
 logical rejection and preservation of the prior accepted generation are covered
 by `SemanticEnvironmentFactoryTest` and `CandidatePublicationCoordinatorTest` in
 klab-services.
+
+The current check targets ODO 0.2.0, preserving historical 0.1.0 and 0.1.1 bytes.
+It additionally verifies the annotated observational-containment vocabulary without
+mereological/inverse/transitive implications, Configuration without a required native
+Countable bearer, and satisfiable Process emergence ingredients. Parser/transport and
+asserted-min-zero contract tests remain in the Services suites. Numbered/latest/consumer
+bytes must agree; the scoped LF attributes preserve the exact committed bytes.

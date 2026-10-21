@@ -578,3 +578,5 @@ These are proposals or unresolved choices, not approved contracts:
 
 Migration of the divergent legacy bundles and mirroring this repository document to
 the discussion Page also remain coordination work. Multiple-domain grammar is deferred.
+
+Current successor release decision: [Observational containment and configuration emergence — 0.2.0](0002-observational-containment.md). Historical checkpoints above remain historical.

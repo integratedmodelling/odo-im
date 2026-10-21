@@ -10,7 +10,7 @@ public class DomainReleaseCheck {
     if (!value) throw new AssertionError(message);
   }
   public static void main(String[] args) throws Exception {
-    var release = Path.of("releases/0.1.1/odo.owl");
+    var release = Path.of("releases/0.2.0/odo.owl");
     check(Arrays.equals(Files.readAllBytes(release),
         Files.readAllBytes(Path.of("releases/latest/odo.owl"))), "latest differs");
     if (args.length > 0) check(Arrays.equals(Files.readAllBytes(release),
@@ -21,9 +21,9 @@ public class DomainReleaseCheck {
     var f = manager.getOWLDataFactory();
     String ns = "http://integratedmodelling.org/odo#";
     check(ontology.getOntologyID().getVersionIRI().orElseThrow().toString()
-        .equals("http://integratedmodelling.org/odo/0.1.1"), "version IRI");
+        .equals("http://integratedmodelling.org/odo/0.2.0"), "version IRI");
     check(ontology.annotations().anyMatch(a -> a.getProperty().equals(f.getOWLVersionInfo())
-        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.1.1")).orElse(false)),
+        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.0")).orElse(false)),
         "version info");
     var oldReasoner = new Reasoner.ReasonerFactory().createReasoner(baseline);
     var reasoner = new Reasoner.ReasonerFactory().createReasoner(ontology);
@@ -120,6 +120,21 @@ public class DomainReleaseCheck {
       var witnessReasoner = new Reasoner.ReasonerFactory().createReasoner(witnessOntology);
       try { check(witnessReasoner.isConsistent(), "open-world witness unexpectedly rejected"); }
       finally { witnessReasoner.dispose(); }
+      var inherent = f.getOWLObjectProperty(IRI.create(ns + "isInherentTo"));
+      var emerges = f.getOWLObjectProperty(IRI.create(ns + "emergesFrom"));
+      var process = f.getOWLClass(IRI.create(ns + "Process"));
+      check(reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(configuration,
+          f.getOWLObjectSomeValuesFrom(emerges, process))), "Process emergence ingredient excluded");
+      check(reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(configuration,
+          f.getOWLObjectMaxCardinality(0,inherent,f.getOWLThing()))), "Configuration still requires native inherency");
+      var contains = f.getOWLObjectProperty(IRI.create(ns + "observationallyContains"));
+      check(ontology.containsObjectPropertyInSignature(contains.getIRI()), "observational containment property missing");
+      check(ontology.getTransitiveObjectPropertyAxioms(contains).isEmpty(), "containment accidentally transitive");
+      check(ontology.getInverseObjectPropertyAxioms(contains).isEmpty(), "containment has an unintended inverse");
+      check(ontology.getObjectSubPropertyAxiomsForSubProperty(contains).isEmpty(), "containment has unintended property ancestry");
+      check(ontology.containsAnnotationPropertyInSignature(IRI.create("urn:klab:validation:observational-containment")),
+          "asserted containment marker vocabulary missing");
+      System.out.println("PASS: observational containment vocabulary, no inverse/transitivity/ancestry, independent Configuration and process emergence.");
       var before = oldReasoner.getUnsatisfiableClasses().getEntitiesMinusBottom();
       var after = reasoner.getUnsatisfiableClasses().getEntitiesMinusBottom();
       check(before.equals(after), "named-class satisfiability regression: " + after);
