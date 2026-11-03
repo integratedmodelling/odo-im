@@ -492,6 +492,15 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     
 
 
+    <!-- http://integratedmodelling.org/odo#impliesPredicate -->
+
+    <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#impliesPredicate">
+        <rdfs:range rdf:resource="http://integratedmodelling.org/odo#Predicate"/>
+        <rdfs:comment>Semantic implication whose target is a predicate. Source-language validation distinguishes role and relationship implications from configuration-to-role implications; no source domain is inferred. This relation does not itself attribute a predicate to an observed bearer. Executable consequence rules retain recipient, application context and authored source evidence.</rdfs:comment>
+    </owl:ObjectProperty>
+
+
+
     <!-- http://integratedmodelling.org/odo#impliesRole -->
 
     <owl:ObjectProperty rdf:about="http://integratedmodelling.org/odo#impliesRole">
