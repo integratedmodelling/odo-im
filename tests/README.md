@@ -37,7 +37,7 @@ logical rejection and preservation of the prior accepted generation are covered
 by `SemanticEnvironmentFactoryTest` and `CandidatePublicationCoordinatorTest` in
 klab-services.
 
-The current check targets ODO 0.2.1, preserving historical 0.1.0, 0.1.1 and 0.2.0 bytes.
+The current check targets ODO 0.2.2, preserving historical 0.1.0, 0.1.1, 0.2.0 and 0.2.1 bytes.
 It additionally verifies the annotated observational-containment vocabulary without
 mereological/inverse/transitive implications, Configuration without a required native
 Countable bearer, and satisfiable Process emergence ingredients. Parser/transport and
@@ -54,3 +54,7 @@ consumers of the former latest URL must migrate before that URL disappears.
 Energy must inherit ExtensivePhysicalProperty and remain satisfiable, without
 IntensivePhysicalProperty ancestry and with its joule unit preserved. Consumer
 measurement and derivative checks accompany this candidate-only correction.
+
+The 0.2.2 candidate adds only abstract intensive Frequency with Hz units. It is
+not Numerosity; the worldview establishes the cyclic-process bearer. Consumer
+tests cover inherited bearers, inverse-time units and duration in seconds.

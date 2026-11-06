@@ -10,7 +10,7 @@ public class DomainReleaseCheck {
     if (!value) throw new AssertionError(message);
   }
   public static void main(String[] args) throws Exception {
-    var release = Path.of("releases/0.2.1/odo.owl");
+    var release = Path.of("releases/0.2.2/odo.owl");
     check(!Files.exists(Path.of("releases/latest/odo.owl")), "mutable latest alias must remain retired");
     if (args.length > 0) check(Arrays.equals(Files.readAllBytes(release),
         Files.readAllBytes(Path.of(args[0]))), "consumer differs");
@@ -20,9 +20,9 @@ public class DomainReleaseCheck {
     var f = manager.getOWLDataFactory();
     String ns = "http://integratedmodelling.org/odo#";
     check(ontology.getOntologyID().getVersionIRI().orElseThrow().toString()
-        .equals("http://integratedmodelling.org/odo/0.2.1"), "version IRI");
+        .equals("http://integratedmodelling.org/odo/0.2.2"), "version IRI");
     check(ontology.annotations().anyMatch(a -> a.getProperty().equals(f.getOWLVersionInfo())
-        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.1")).orElse(false)),
+        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.2")).orElse(false)),
         "version info");
     var oldReasoner = new Reasoner.ReasonerFactory().createReasoner(baseline);
     var reasoner = new Reasoner.ReasonerFactory().createReasoner(ontology);
@@ -40,6 +40,17 @@ public class DomainReleaseCheck {
               && a.getValue().asLiteral().map(v -> v.getLiteral().equals("J")).orElse(false)),
           "Energy lost joule default unit");
       System.out.println("PASS: Energy extensive, satisfiable, not intensive, joule unit retained.");
+      var frequency = f.getOWLClass(IRI.create(ns + "Frequency"));
+      var duration = f.getOWLClass(IRI.create(ns + "Duration"));
+      check(reasoner.isSatisfiable(frequency), "Frequency unsatisfiable");
+      check(reasoner.isEntailed(f.getOWLSubClassOfAxiom(frequency, intensive)), "Frequency must be intensive");
+      check(!reasoner.isEntailed(f.getOWLSubClassOfAxiom(frequency, extensive)), "Frequency must not be extensive");
+      check(!reasoner.isEntailed(f.getOWLSubClassOfAxiom(frequency, f.getOWLClass(IRI.create(ns + "Numerosity")))), "Frequency is not a count");
+      for (var entry : Map.of(frequency, "Hz", duration, "s").entrySet())
+        check(ontology.annotationAssertionAxioms(entry.getKey().getIRI()).anyMatch(a ->
+            a.getProperty().getIRI().toString().equals(ns + "unit") &&
+            a.getValue().asLiteral().map(v -> v.getLiteral().equals(entry.getValue())).orElse(false)), "cycle quantity unit");
+      System.out.println("PASS: Frequency intensive, satisfiable; Frequency Hz and Duration seconds.");
       var collectiveSubject = f.getOWLClass(IRI.create(ns + "CollectiveSubject"));
       var collectiveAgent = f.getOWLClass(IRI.create(ns + "CollectiveAgent"));
       var subject = f.getOWLClass(IRI.create(ns + "Subject"));
