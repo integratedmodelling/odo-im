@@ -50,12 +50,14 @@ ODO-IM does _not_ cover several topics of common occurrence in other observation
 - It does not provide any detail on space, time and any other topologies implied in the definition of observational scale, beyond their statement as extentual observables (Extent), as their specific interpretation is left to worldviews derived from ODO-IM.
 - It does not provide semantics for units of measurement, like other observation ontologies do. In ODO-IM units do not hold the same ontological dignity as the remaining subject matter. The applications where ODO-IM is used do not need units as stated instances and do not use reasoning to validate units - an endeavor that would, anyway, require second-order logics in order to handle the transformation of units through aggregation and propagation in time and space when shifts in observation semantics cause the context topology to collapse or subdivide, without altering the observable semantics. To support applications, ODO-IM does lists the SI base unit textually in annotation properties linked to all PhysicalProperty observables, using SI conventions. Applications can use a unit parser to translate these into data structures for validation and conversion.
 
-## Dependencies
+## Collective entities
 
 `CollectiveSubject` and `CollectiveAgent` describe identifiable collective entities
 with Subject and Agent nature respectively. Their unity and continuity belong to
 their scientific articulation. These kinds imply no member types, fixed membership
 or observational containment; observational collections remain a separate contract.
+
+## Dependencies
 
 ODO-IM only depends on the [PROV-O](https://www.w3.org/TR/prov-o/) provenance ontology, as Descriptions and Observations are, respectively, Activities (prov:Activity) and informational artifacts (prov:Entity).
 
@@ -68,4 +70,4 @@ The ODO-IM ontology is released under CC-BY license for any purpose. Its main ra
 	
 Links to an upper ontology of choice can be made in k.IM, in the root domain of each worldview, and are meant to support reasoning outside of k.LAB as the reasoning in k.LAB only depends on ODO-IM concepts. Linking to an upper ontology is not required for k.LAB to function. The k.LAB stack also includes a knowledge processor that can rewrite k.IM namespaces into OWL ontologies and perform consistency checks, alignments, inferences and other operations.
 
-This repository is the official distribution of the ODO-IM ontology. The current numbered release is [ODO 0.2.0](https://raw.githubusercontent.com/integratedmodelling/odo-im/df5980e36d921233cc66b0bb270a2a36f86ccfce/releases/0.2.0/odo.owl). Pin a numbered release and commit when importing it; the mutable `releases/latest/odo.owl` alias has been retired. Historical numbered releases remain available unchanged. Consumers of the former latest URL must migrate to a numbered release. Documentation will be available in this project in AsciiDoc source form and pre-built on the [k.LAB documentation site](https://docs.integratedmodelling.org).
+This repository is the official distribution of the ODO-IM ontology. The current numbered release is [ODO 0.2.1](https://raw.githubusercontent.com/integratedmodelling/odo-im/ede866637f505dfb882b7b9427a8f21f27922093/releases/0.2.1/odo.owl). Pin a numbered release and commit when importing it; the mutable `releases/latest/odo.owl` alias has been retired. Historical numbered releases remain available unchanged. Consumers of the former latest URL must migrate to a numbered release. Documentation will be available in this project in AsciiDoc source form and pre-built on the [k.LAB documentation site](https://docs.integratedmodelling.org).
