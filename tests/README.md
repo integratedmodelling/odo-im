@@ -37,12 +37,16 @@ logical rejection and preservation of the prior accepted generation are covered
 by `SemanticEnvironmentFactoryTest` and `CandidatePublicationCoordinatorTest` in
 klab-services.
 
-The current check targets ODO 0.2.0, preserving historical 0.1.0 and 0.1.1 bytes.
+The current check targets ODO 0.2.1, preserving historical 0.1.0, 0.1.1 and 0.2.0 bytes.
 It additionally verifies the annotated observational-containment vocabulary without
 mereological/inverse/transitive implications, Configuration without a required native
 Countable bearer, and satisfiable Process emergence ingredients. Parser/transport and
 asserted-min-zero contract tests remain in the Services suites. Numbered-release/consumer
 bytes must agree; the scoped LF attributes preserve the exact committed bytes.
+
+The 0.2.1 checks also cover abstract CollectiveSubject and CollectiveAgent roots,
+their distinct and nonexhaustive kinds, absence of observational collection and
+containment implications, and independence of member agency from group agency.
 The check also rejects reintroduction of the retired `releases/latest/odo.owl`
 copy. Use the README's commit-pinned numbered release URL for distribution;
 consumers of the former latest URL must migrate before that URL disappears.

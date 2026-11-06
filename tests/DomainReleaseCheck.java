@@ -10,7 +10,7 @@ public class DomainReleaseCheck {
     if (!value) throw new AssertionError(message);
   }
   public static void main(String[] args) throws Exception {
-    var release = Path.of("releases/0.2.0/odo.owl");
+    var release = Path.of("releases/0.2.1/odo.owl");
     check(!Files.exists(Path.of("releases/latest/odo.owl")), "mutable latest alias must remain retired");
     if (args.length > 0) check(Arrays.equals(Files.readAllBytes(release),
         Files.readAllBytes(Path.of(args[0]))), "consumer differs");
@@ -20,15 +20,59 @@ public class DomainReleaseCheck {
     var f = manager.getOWLDataFactory();
     String ns = "http://integratedmodelling.org/odo#";
     check(ontology.getOntologyID().getVersionIRI().orElseThrow().toString()
-        .equals("http://integratedmodelling.org/odo/0.2.0"), "version IRI");
+        .equals("http://integratedmodelling.org/odo/0.2.1"), "version IRI");
     check(ontology.annotations().anyMatch(a -> a.getProperty().equals(f.getOWLVersionInfo())
-        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.0")).orElse(false)),
+        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.1")).orElse(false)),
         "version info");
     var oldReasoner = new Reasoner.ReasonerFactory().createReasoner(baseline);
     var reasoner = new Reasoner.ReasonerFactory().createReasoner(ontology);
     try {
       check(oldReasoner.isConsistent(), "baseline inconsistent");
       check(reasoner.isConsistent(), "release inconsistent");
+      var collectiveSubject = f.getOWLClass(IRI.create(ns + "CollectiveSubject"));
+      var collectiveAgent = f.getOWLClass(IRI.create(ns + "CollectiveAgent"));
+      var subject = f.getOWLClass(IRI.create(ns + "Subject"));
+      var agent = f.getOWLClass(IRI.create(ns + "Agent"));
+      for (var entry : Map.of(collectiveSubject, subject, collectiveAgent, agent).entrySet()) {
+        var collective = entry.getKey();
+        check(ontology.getSubClassAxiomsForSubClass(collective).size() == 1
+            && ontology.containsAxiom(f.getOWLSubClassOfAxiom(collective, entry.getValue())),
+            "collective must have only its matching kind parent");
+        check(reasoner.isSatisfiable(collective), "collective unsatisfiable");
+        check(ontology.getEquivalentClassesAxioms(collective).isEmpty(), "collective equivalence");
+        check(ontology.annotationAssertionAxioms(collective.getIRI()).anyMatch(a ->
+            a.getProperty().getIRI().toString().equals(ns + "isAbstract")
+                && a.getValue().asLiteral().map(v -> v.getLiteral().equals("true")).orElse(false)),
+            "collective must be abstract");
+        check(ontology.annotationAssertionAxioms(collective.getIRI()).noneMatch(a ->
+            a.getProperty().getIRI().toString().equals(ns + "isCollective")),
+            "entity kind must not activate observational collection annotation");
+        check(reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(entry.getValue(),
+            f.getOWLObjectComplementOf(collective))), "collective exhausts base kind");
+        check(reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(collective,
+            f.getOWLObjectMaxCardinality(0,
+                f.getOWLObjectProperty(IRI.create(ns + "observationallyContains")), f.getOWLThing()))),
+            "collective implies observational containment");
+      }
+      check(!reasoner.isSatisfiable(f.getOWLObjectIntersectionOf(collectiveSubject, collectiveAgent)),
+          "collective Subject/Agent kinds overlap");
+      var collectiveFixture = manager.createOntology(IRI.create("urn:odo-test:collectives"));
+      manager.addAxioms(collectiveFixture, ontology.getAxioms());
+      var member = f.getOWLObjectProperty(IRI.create("urn:odo-test:member"));
+      var structuralGroup = f.getOWLClass(IRI.create("urn:odo-test:structuralGroup"));
+      var actingGroup = f.getOWLClass(IRI.create("urn:odo-test:actingGroup"));
+      manager.addAxioms(collectiveFixture, Set.of(
+          f.getOWLSubClassOfAxiom(structuralGroup, collectiveSubject),
+          f.getOWLSubClassOfAxiom(structuralGroup, f.getOWLObjectSomeValuesFrom(member, agent)),
+          f.getOWLSubClassOfAxiom(actingGroup, collectiveAgent),
+          f.getOWLSubClassOfAxiom(actingGroup, f.getOWLObjectSomeValuesFrom(member, subject)),
+          f.getOWLSubClassOfAxiom(actingGroup, f.getOWLObjectAllValuesFrom(member, subject))));
+      var collectiveReasoner = new Reasoner.ReasonerFactory().createReasoner(collectiveFixture);
+      try {
+        check(collectiveReasoner.isSatisfiable(structuralGroup), "Agent members retype Subject group");
+        check(collectiveReasoner.isSatisfiable(actingGroup), "collective agency requires Agent members");
+      } finally { collectiveReasoner.dispose(); }
+      System.out.println("PASS: abstract distinct collective roots, nonexhaustiveness, no collection annotation or containment, independent member/group agency.");
       var derivative = f.getOWLClass(IRI.create(ns + "ChangeRate"));
       var numeric = f.getOWLClass(IRI.create(ns + "ContinuousNumericallyQuantifiableQuality"));
       var describesNumeric = f.getOWLObjectSomeValuesFrom(

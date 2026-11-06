@@ -52,6 +52,11 @@ ODO-IM does _not_ cover several topics of common occurrence in other observation
 
 ## Dependencies
 
+`CollectiveSubject` and `CollectiveAgent` describe identifiable collective entities
+with Subject and Agent nature respectively. Their unity and continuity belong to
+their scientific articulation. These kinds imply no member types, fixed membership
+or observational containment; observational collections remain a separate contract.
+
 ODO-IM only depends on the [PROV-O](https://www.w3.org/TR/prov-o/) provenance ontology, as Descriptions and Observations are, respectively, Activities (prov:Activity) and informational artifacts (prov:Entity).
 
 ## Rationale and Usage
