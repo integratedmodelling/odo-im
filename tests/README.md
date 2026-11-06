@@ -19,7 +19,7 @@ dependency downloads are permitted. The machine-specific classpath is written to
 unique temporary file outside the repository. Java source-file mode does not emit
 class files into the repository. No `.gitignore` exception is needed.
 
-The check proves version metadata, release/latest/consumer byte parity, ontology
+The check proves version metadata, numbered-release/consumer byte parity, ontology
 consistency, domain disjointness and nonexhaustiveness, individual domain satisfiability,
 the distinction between Epistemic and KnowledgeDomain, and no new unsatisfiable named
 classes compared with 0.1.0. It checks interpretation typing, the minimum-one
@@ -41,5 +41,8 @@ The current check targets ODO 0.2.0, preserving historical 0.1.0 and 0.1.1 bytes
 It additionally verifies the annotated observational-containment vocabulary without
 mereological/inverse/transitive implications, Configuration without a required native
 Countable bearer, and satisfiable Process emergence ingredients. Parser/transport and
-asserted-min-zero contract tests remain in the Services suites. Numbered/latest/consumer
+asserted-min-zero contract tests remain in the Services suites. Numbered-release/consumer
 bytes must agree; the scoped LF attributes preserve the exact committed bytes.
+The check also rejects reintroduction of the retired `releases/latest/odo.owl`
+copy. Use the README's commit-pinned numbered release URL for distribution;
+consumers of the former latest URL must migrate before that URL disappears.

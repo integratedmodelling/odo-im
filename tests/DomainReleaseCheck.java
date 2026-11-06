@@ -11,8 +11,7 @@ public class DomainReleaseCheck {
   }
   public static void main(String[] args) throws Exception {
     var release = Path.of("releases/0.2.0/odo.owl");
-    check(Arrays.equals(Files.readAllBytes(release),
-        Files.readAllBytes(Path.of("releases/latest/odo.owl"))), "latest differs");
+    check(!Files.exists(Path.of("releases/latest/odo.owl")), "mutable latest alias must remain retired");
     if (args.length > 0) check(Arrays.equals(Files.readAllBytes(release),
         Files.readAllBytes(Path.of(args[0]))), "consumer differs");
     var manager = OWLManager.createOWLOntologyManager();

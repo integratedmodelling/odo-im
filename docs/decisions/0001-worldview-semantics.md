@@ -12,6 +12,15 @@ belong to models and digital twins.
 
 ## Release authority and migration
 
+Superseding release-distribution decision, 2026-11-06: retire the mutable
+`releases/latest/odo.owl` copy. The numbered release remains authoritative, and
+consumer bundles must match its exact bytes. Use commit-pinned numbered release
+URLs; historical numbered files and ontology IRIs remain unchanged. The README,
+release check, and latest-specific attribute are updated accordingly. Removing
+the formerly advertised latest URL can break unknown external consumers; those
+consumers must migrate to a numbered release. The original 2026-10-12 decision
+below is retained as history; its latest-copy parity requirement is superseded.
+
 The numbered release in integratedmodelling/odo-im is authoritative. The baseline is
 `aa2cc5611799ceed2aad52ae2c2a349da29e3c4b`. The intended prior release was 0.1.0;
 its `versionIRI` and `versionInfo` incorrectly say 0.10.0. Preserve the historical
