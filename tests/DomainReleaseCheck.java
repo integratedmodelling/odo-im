@@ -29,6 +29,17 @@ public class DomainReleaseCheck {
     try {
       check(oldReasoner.isConsistent(), "baseline inconsistent");
       check(reasoner.isConsistent(), "release inconsistent");
+      var energy = f.getOWLClass(IRI.create(ns + "Energy"));
+      var extensive = f.getOWLClass(IRI.create(ns + "ExtensivePhysicalProperty"));
+      var intensive = f.getOWLClass(IRI.create(ns + "IntensivePhysicalProperty"));
+      check(ontology.containsAxiom(f.getOWLSubClassOfAxiom(energy, extensive)), "Energy must be extensive");
+      check(!reasoner.isEntailed(f.getOWLSubClassOfAxiom(energy, intensive)), "Energy remains intensive");
+      check(reasoner.isSatisfiable(energy), "Energy unsatisfiable");
+      check(ontology.annotationAssertionAxioms(energy.getIRI()).anyMatch(a ->
+          a.getProperty().getIRI().toString().equals(ns + "unit")
+              && a.getValue().asLiteral().map(v -> v.getLiteral().equals("J")).orElse(false)),
+          "Energy lost joule default unit");
+      System.out.println("PASS: Energy extensive, satisfiable, not intensive, joule unit retained.");
       var collectiveSubject = f.getOWLClass(IRI.create(ns + "CollectiveSubject"));
       var collectiveAgent = f.getOWLClass(IRI.create(ns + "CollectiveAgent"));
       var subject = f.getOWLClass(IRI.create(ns + "Subject"));

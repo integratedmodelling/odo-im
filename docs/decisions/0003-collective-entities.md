@@ -38,3 +38,14 @@ Remaining scientific work: articulate the applicable social-connection and
 population configurations, their support/cohort criteria and models. Whether a
 particular observationally selected group establishes a collective entity belongs
 to its explicit scientific criteria; lineage alone cannot decide that question.
+
+## Energy correction in the unpublished candidate
+
+The user confirmed that Energy is extensive. The prepared 0.2.1 release therefore
+places Energy under ExtensivePhysicalProperty, replacing its inherited baseline
+IntensivePhysicalProperty parent. Its abstract status and joule unit remain
+unchanged. This does not make power, specific energy or energy density into Energy.
+Historical numbered releases remain byte-identical. Consumers must move together
+to the new candidate commit and exact bytes; the earlier local candidate pin is
+superseded. OWL classification, current consumer flags, joule/kilojoule conversion
+and temporal-derivative unit/nature checks cover the correction.

@@ -1105,7 +1105,7 @@ Dr. Greta Adamo (greta.adamo@bc3research.org)</dc:contributor>
     <!-- http://integratedmodelling.org/odo#Energy -->
 
     <owl:Class rdf:about="http://integratedmodelling.org/odo#Energy">
-        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#IntensivePhysicalProperty"/>
+        <rdfs:subClassOf rdf:resource="http://integratedmodelling.org/odo#ExtensivePhysicalProperty"/>
         <isAbstract rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isAbstract>
         <unit>J</unit>
     </owl:Class>

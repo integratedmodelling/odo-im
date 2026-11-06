@@ -50,3 +50,7 @@ containment implications, and independence of member agency from group agency.
 The check also rejects reintroduction of the retired `releases/latest/odo.owl`
 copy. Use the README's commit-pinned numbered release URL for distribution;
 consumers of the former latest URL must migrate before that URL disappears.
+
+Energy must inherit ExtensivePhysicalProperty and remain satisfiable, without
+IntensivePhysicalProperty ancestry and with its joule unit preserved. Consumer
+measurement and derivative checks accompany this candidate-only correction.
