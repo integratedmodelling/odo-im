@@ -10,7 +10,7 @@ public class DomainReleaseCheck {
     if (!value) throw new AssertionError(message);
   }
   public static void main(String[] args) throws Exception {
-    var release = Path.of("releases/0.2.2/odo.owl");
+    var release = Path.of("releases/0.2.3/odo.owl");
     check(!Files.exists(Path.of("releases/latest/odo.owl")), "mutable latest alias must remain retired");
     if (args.length > 0) check(Arrays.equals(Files.readAllBytes(release),
         Files.readAllBytes(Path.of(args[0]))), "consumer differs");
@@ -19,10 +19,17 @@ public class DomainReleaseCheck {
     var ontology = manager.loadOntologyFromOntologyDocument(release.toFile());
     var f = manager.getOWLDataFactory();
     String ns = "http://integratedmodelling.org/odo#";
+    for (var name : List.of("changedFrom", "changedTo")) {
+      var property = f.getOWLObjectProperty(IRI.create(ns + name));
+      check(ontology.containsObjectPropertyInSignature(property.getIRI()), "missing " + name);
+      check(ontology.containsAxiom(f.getOWLObjectPropertyDomainAxiom(property,
+          f.getOWLClass(IRI.create(ns + "Event")))), name + " must describe an event endpoint");
+    }
+
     check(ontology.getOntologyID().getVersionIRI().orElseThrow().toString()
-        .equals("http://integratedmodelling.org/odo/0.2.2"), "version IRI");
+        .equals("http://integratedmodelling.org/odo/0.2.3"), "version IRI");
     check(ontology.annotations().anyMatch(a -> a.getProperty().equals(f.getOWLVersionInfo())
-        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.2")).orElse(false)),
+        && a.getValue().asLiteral().map(v -> v.getLiteral().equals("Version 0.2.3")).orElse(false)),
         "version info");
     var oldReasoner = new Reasoner.ReasonerFactory().createReasoner(baseline);
     var reasoner = new Reasoner.ReasonerFactory().createReasoner(ontology);

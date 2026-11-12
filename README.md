@@ -74,3 +74,7 @@ This repository is the official distribution of the ODO-IM ontology. The current
 
 [ODO 0.2.2](docs/RELEASE-0.2.2.md) adds Frequency in Hz. Its immutable source pin
 is `f5e996b42a2d91994d06c11581ce80616d8351d4`; Duration retains intensive ancestry.
+
+The local [ODO 0.2.3 candidate](docs/RELEASE-0.2.3.md) adds directed categorical
+change-event endpoints. It is not yet published; the current distribution pin above
+remains the released 0.2.2 artifact until a 0.2.3 commit is available.
